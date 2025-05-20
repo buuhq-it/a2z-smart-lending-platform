@@ -1,0 +1,142 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36" version="27.0.6">
+  <diagram id="diagram_1" name="Page-1">
+    <mxGraphModel dx="2593" dy="1256" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="BOD" value="Hội đồng Quản Trị" style="shape=rectangle;fillColor=#ffeb3b;strokeColor=#333;strokeWidth=2;" parent="1" vertex="1">
+          <mxGeometry x="770" y="10" width="150" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="CEO" value="Tổng Giám Đốc (CEO)" style="shape=rectangle;" parent="1" vertex="1">
+          <mxGeometry x="770" y="140" width="150" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="BOD_CEO" parent="1" source="BOD" target="CEO" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IyTaHq8RmnxD6xDR1koq-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="FD" target="FA1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IyTaHq8RmnxD6xDR1koq-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="FD" target="FA2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IyTaHq8RmnxD6xDR1koq-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="FD" target="FA3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="FD" value="Phó TGĐ Tài chính &amp; Kế toán" style="shape=rectangle;" parent="1" vertex="1">
+          <mxGeometry x="50" y="250" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="FA1" value="Kế toán tổng hợp" style="shape=rectangle;" parent="1" vertex="1">
+          <mxGeometry x="170" y="320" width="150" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="FA2" value="Tài chính doanh nghiệp" style="shape=rectangle;" parent="1" vertex="1">
+          <mxGeometry x="170" y="380" width="150" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="FA3" value="Kiểm toán nội bộ" style="shape=rectangle;" parent="1" vertex="1">
+          <mxGeometry x="170" y="440" width="150" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="CEO_FD" parent="1" source="CEO" target="FD" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IyTaHq8RmnxD6xDR1koq-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="BD" target="KB1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IyTaHq8RmnxD6xDR1koq-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="BD" target="KB2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IyTaHq8RmnxD6xDR1koq-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="BD" target="KB3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BD" value="Phó TGĐ Kinh doanh &amp; Cá nhân &amp; DN" style="shape=rectangle;" parent="1" vertex="1">
+          <mxGeometry x="300" y="250" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="KB1" value="Kênh bán trực tiếp (Sales)" style="shape=rectangle;" parent="1" vertex="1">
+          <mxGeometry x="440" y="320" width="180" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="KB2" value="Kênh qua đối tác (POS, TMĐT)" style="shape=rectangle;" parent="1" vertex="1">
+          <mxGeometry x="440" y="380" width="180" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="KB3" value="Phòng phát triển sản phẩm vay" style="shape=rectangle;" parent="1" vertex="1">
+          <mxGeometry x="440" y="440" width="180" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="CEO_BD" parent="1" source="CEO" target="BD" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IyTaHq8RmnxD6xDR1koq-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="BC" target="CS1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IyTaHq8RmnxD6xDR1koq-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="BC" target="CS2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IyTaHq8RmnxD6xDR1koq-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="BC" target="CS3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BC" value="Phó TGĐ Chi nhánh &amp; DV Khách hàng" style="shape=rectangle;" parent="1" vertex="1">
+          <mxGeometry x="550" y="250" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="CS1" value="Trung tâm chăm sóc khách hàng" style="shape=rectangle;" parent="1" vertex="1">
+          <mxGeometry x="670" y="320" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="CS2" value="Vận hành hợp đồng / giải ngân" style="shape=rectangle;" parent="1" vertex="1">
+          <mxGeometry x="670" y="390" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="CS3" value="Quản lý chất lượng dịch vụ" style="shape=rectangle;" parent="1" vertex="1">
+          <mxGeometry x="670" y="450" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="CEO_BC" parent="1" source="CEO" target="BC" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IyTaHq8RmnxD6xDR1koq-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="CIO" target="IT1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IyTaHq8RmnxD6xDR1koq-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="CIO" target="IT2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IyTaHq8RmnxD6xDR1koq-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="CIO" target="IT3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="CIO" value="Phó TGĐ Công nghệ thông tin (CIO)" style="shape=rectangle;" parent="1" vertex="1">
+          <mxGeometry x="800" y="250" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="IT1" value="Phát triển hệ thống core" style="shape=rectangle;" parent="1" vertex="1">
+          <mxGeometry x="920" y="320" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="IT2" value="Phát triển ứng dụng mobile/web" style="shape=rectangle;" parent="1" vertex="1">
+          <mxGeometry x="920" y="390" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="IT3" value="Hạ tầng và bảo mật" style="shape=rectangle;" parent="1" vertex="1">
+          <mxGeometry x="920" y="450" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="IT4" value="Phân tích dữ liệu &amp; DWH" style="shape=rectangle;" parent="1" vertex="1">
+          <mxGeometry x="920" y="510" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="CEO_CIO" parent="1" source="CEO" target="CIO" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IyTaHq8RmnxD6xDR1koq-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="RC" target="RC1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IyTaHq8RmnxD6xDR1koq-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="RC" target="RC2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IyTaHq8RmnxD6xDR1koq-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="RC" target="RC3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="RC" value="Phó TGĐ Rủi ro &amp; Tuân thủ" style="shape=rectangle;" parent="1" vertex="1">
+          <mxGeometry x="1090" y="250" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="RC1" value="Phân tích tín dụng &amp; chấm điểm" style="shape=rectangle;" parent="1" vertex="1">
+          <mxGeometry x="1220" y="320" width="220" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="RC3" value="Tuân thủ pháp luật &amp; AML" style="shape=rectangle;" parent="1" vertex="1">
+          <mxGeometry x="1220" y="450" width="220" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="CEO_RC" parent="1" source="CEO" target="RC" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="RC2" value="Phòng chống gian lận" style="shape=rectangle;" parent="1" vertex="1">
+          <mxGeometry x="1220" y="390" width="220" height="50" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

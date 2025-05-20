@@ -1,0 +1,37 @@
+server:
+  port: 9091
+
+jwt:
+  secret: super-secret-jwt-key-super-secret-jwt-key
+  issuer: a2z-smart-lending-platform
+  expiration-in-ms: 86400000
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/a2z_smart_lending_db
+    username: postgres
+    password: Password123
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update # or update / none (Liquibase will manage schema)
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    open-in-view: false
+
+  liquibase:
+    enabled: false
+    change-log: classpath:/db/changelog/db.changelog-master.xml
+
+logging:
+  file:
+    name: logs/a2z-smart-lending-rest.log
+  level:
+    root: INFO
+    org.springframework.web: DEBUG
+  pattern:
+    file: "%d{yyyy-MM-dd HH:mm:ss} %-5level [%thread] %logger{36} - %msg%n"
+

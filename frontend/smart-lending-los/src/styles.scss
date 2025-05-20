@@ -1,0 +1,18 @@
+/* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+@use "tailwindcss";
+@use "primeicons/primeicons.css";
+
+@use './assets/layout/layout.scss';
+@use './assets/demo/demo.scss';
+@plugin "tailwindcss-primeui";
+@custom-variant dark (&:where(.p-dark, .p-dark *));
+
+
+.p-datatable-mask {
+  @apply backdrop-blur-sm! bg-surface-0/20! dark:bg-surface-900/20!;
+}
+
+.p-datatable-loading-icon {
+  @apply text-primary!;
+}
