@@ -68,3 +68,41 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+# ============================
+# Python projects under backend/
+# ============================
+
+# Virtual environments
+backend/**/.venv/
+backend/**/env/
+backend/**/venv/
+
+# Byte-compiled / cache files
+backend/**/__pycache__/
+backend/**/**/*.py[cod]
+backend/**/*.py[cod]
+
+# Editor & IDE folders
+backend/**/.idea/
+backend/**/.vscode/
+
+# Log, DB, temporary & runtime files
+backend/**/*.log
+backend/**/*.db
+backend/**/*.sqlite3
+
+# Jupyter Notebook checkpoints
+backend/**/.ipynb_checkpoints/
+
+# Testing & coverage tools
+backend/**/.mypy_cache/
+backend/**/.pytest_cache/
+backend/**/htmlcov/
+backend/**/.coverage
+backend/**/.cache/
+
+# Distribution / packaging
+backend/**/build/
+backend/**/dist/
+backend/**/*.egg-info/
