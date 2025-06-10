@@ -1,0 +1,67 @@
+version: '3.9'
+services:
+  adminer:
+    image: adminer:5.3.0-standalone
+    restart: unless-stopped
+    container_name: db-adminer
+    networks:
+      - net-db
+    ports:
+      - "9001:8080"
+
+  pgadmin4:
+    container_name: pgadmin4
+    image: dpage/pgadmin4:9.4.0
+    #restart: unless-stopped
+    environment:
+      PGADMIN_DEFAULT_EMAIL: huynhquocbuu@gmail.com
+      PGADMIN_DEFAULT_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - ./pgadmin4-data:/var/lib/pgadmin
+    ports:
+      - "9002:80"
+    networks:
+      - net-db
+
+  postgres:
+    image: postgres:16.9-bookworm
+    #restart: unless-stopped
+    container_name: postgres
+    environment:
+      POSTGRES_USER: ${POSTGRESQL_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      PGDATA: /var/lib/postgresql/data/pgdata
+    volumes:
+      - ./postgres-data/data:/var/lib/postgresql/data
+    networks:
+      - net-db
+    ports:
+      - "5432:5432"
+
+  mysqldb:
+    image: mysql:8.0.42
+    #restart: unless-stopped
+    container_name: mysqldb
+    volumes:
+      - ./mysql-data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+    networks:
+      - net-db
+    ports:
+      - "3306:3306"
+
+
+networks:
+  net-db:
+    name: net-db
+    driver: bridge
+  net-elk:
+    name: net-elk
+    driver: bridge
+  net-message-queue:
+    name: net-message-queue
+    driver: bridge
+  net-app:
+    name: net-app
+    driver: bridge

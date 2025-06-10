@@ -106,3 +106,8 @@ backend/**/.cache/
 backend/**/build/
 backend/**/dist/
 backend/**/*.egg-info/
+
+# Docker
+docker/pgadmin4-data/
+docker/postgres-data/
+docker/mysql-data/
