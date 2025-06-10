@@ -3,9 +3,9 @@
 <h4>
 - Đề tài đã đăng ký: https://docs.google.com/spreadsheets/d/1qI5n1Xwlz0QSNMeqjOutY97tJrHagtz4WwKJYeINGss/edit?gid=0#gid=0 <br>
 - paper: doc/Financial supply chain analysis with borrower identification in smart lending platform.pdf <br>
-- Build platform guide: README.md 
-- Báo cáo 10 trang nộp lần trước: doc/Nhom9-ebusiness-project.docx
-- Tài liệu của thầy: doc/textbook
+- Build platform guide: README.md <br>
+- Báo cáo 10 trang nộp lần trước: doc/Nhom9-ebusiness-project.docx <br>
+- Tài liệu của thầy: doc/textbook <br>
 </h4>
 <table>
   <thead>
