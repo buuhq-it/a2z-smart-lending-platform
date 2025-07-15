@@ -1,5 +1,73 @@
 # a2z-smart-lending-platform
 
+## Build Flowable 6.8.1.36
+Step 1: clone code from: https://github.com/flowable/flowable-engine/tree/flowable-release-6.8.1
+```shell
+git clone https://github.com/flowable/flowable-engine/tree/flowable-release-6.8.1
+cd flowable-engine
+```
+Chú ý check đúng version
+
+Step2: check moi truong
+check có jdk 1.8
+java --version
+mvn -version
+
+Step 3: build all modules
+```shell
+mvn -Pdistro clean install -DskipTests
+```
+
+Step 3: build flowable-ui, flowable-rest
+```shell
+cd modules/flowable-app-rest
+mvn -Pdocker,swagger -DskipTests clean package
+
+
+cd modules/flowable-ui
+mvn -Pdocker -DskipTests clean package
+```
+Step 4: Check image
+```shell
+docker image ls
+```
+Step 5: start container with flowable-ui
+soạn file docker-compose.yml
+```yaml
+# version: "3.8"
+services:
+  flowable-ui:
+    image: flowable-ui:latest
+    container_name: flowable-ui
+    # depends_on:
+    #     - postgresdb
+    environment:
+        - SERVER_PORT=8080
+        - SPRING_DATASOURCE_DRIVER-CLASS-NAME=org.postgresql.Driver
+        - SPRING_DATASOURCE_URL=jdbc:postgresql://postgresdb:5432/flowable
+        - SPRING_DATASOURCE_USERNAME=postgres
+        - SPRING_DATASOURCE_PASSWORD=Password123
+        - FLOWABLE_COMMON_APP_IDM-ADMIN_USER=admin
+        - FLOWABLE_COMMON_APP_IDM-ADMIN_PASSWORD=test
+    networks:
+      - net-data
+    ports:
+        - 6110:8080
+    entrypoint: ["./wait-for-something.sh", "postgresdb", "5432", "PostgreSQL", "/flowable-entrypoint.sh"]
+    
+
+networks:
+  net-data:
+    name: net-data
+    external: true
+    driver: bridge
+```
+
+```shell
+docker compose up -d
+```
+
+
 ## Database
 - dbms: postgresql
 - dùng docker install
