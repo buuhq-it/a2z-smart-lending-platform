@@ -20,6 +20,15 @@
 
     <dependencyManagement>
         <dependencies>
+            <!-- Flowable Process Engine Core -->
+            <dependency>
+                <groupId>org.flowable</groupId>
+                <artifactId>flowable-spring</artifactId>
+                <version>6.8.1.36</version>
+            </dependency>
+
+            <!-- Optionally for DMN, Forms, Content, etc., add if needed -->
+
             <dependency>
                 <groupId>io.jsonwebtoken</groupId>
                 <artifactId>jjwt-api</artifactId>
@@ -68,6 +77,18 @@
                 <artifactId>liquibase-core</artifactId>
                 <version>${liquibase.version}</version>
             </dependency>
+
+            <dependency>
+                <groupId>org.apache.httpcomponents.client5</groupId>
+                <artifactId>httpclient5</artifactId>
+                <version>5.5</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.httpcomponents.core5</groupId>
+                <artifactId>httpcore5</artifactId>
+                <version>5.3.4</version> <!-- Use the latest stable version -->
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 

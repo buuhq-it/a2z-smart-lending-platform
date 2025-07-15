@@ -1,17 +1,53 @@
 server:
-  port: 9091
+  port: 9092
 
 jwt:
   secret: super-secret-jwt-key-super-secret-jwt-key
   issuer: a2z-smart-lending-platform
   expiration-in-ms: 86400000
 
+
 spring:
+  profiles:
+    active: default
+  application:
+    name: smart-lending-platform-be
+  jpa-platform:
+    properties:
+      hibernate:
+        hbm2ddl.auto: update
+        format_sql: true
+        use_sql_comments: true
+  jpa-process:
+    properties:
+      hibernate:
+        hbm2ddl.auto: update
+        format_sql: true
+        use_sql_comments: true
   datasource:
-    url: jdbc:postgresql://localhost:5432/a2z_smart_lending_db
-    username: postgres
-    password: Password123
-    driver-class-name: org.postgresql.Driver
+    platform:
+      jdbc-url: jdbc:postgresql://localhost:5432/a2z_smart_lending_db
+      username: postgres
+      password: Password123
+      driver-class-name: org.postgresql.Driver
+      hikari:
+        maximum-pool-size: 10
+        minimum-idle: 2
+        idle-timeout: 30000
+        pool-name: HikariOrderingPool
+        max-lifetime: 1800000
+
+    process:
+      jdbc-url: jdbc:postgresql://localhost:5432/flowable
+      username: postgres
+      password: Password123
+      driver-class-name: org.postgresql.Driver
+      hikari:
+        maximum-pool-size: 10
+        minimum-idle: 2
+        idle-timeout: 30000
+        pool-name: HikariManagementPool
+        max-lifetime: 1800000
 
   jpa:
     hibernate:
@@ -25,6 +61,12 @@ spring:
   liquibase:
     enabled: false
     change-log: classpath:/db/changelog/db.changelog-master.xml
+
+  flowable-datasource:
+    jdbc-url: jdbc:postgresql://localhost:5433/flowable
+    username: postgres
+    password: Password123
+    driver-class-name: org.postgresql.Driver
 
 logging:
   file:
