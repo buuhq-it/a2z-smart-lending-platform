@@ -8,6 +8,7 @@ import logging
 from datetime import datetime
 import sys
 import improved_random_forest
+from flask_cors import CORS
 
 # No additional paths needed for this simple API
 
@@ -121,6 +122,7 @@ class ModelService:
 
 # Initialize Flask app and model service
 app = Flask(__name__)
+CORS(app, origins=["http://localhost:4200"])
 api = Api(app)
 model_service = ModelService()
 
@@ -292,4 +294,4 @@ if __name__ == '__main__':
         logger.warning("No model loaded - API will return errors until model is available")
     
     # Run the app
-    app.run(host='0.0.0.0', port=5000, debug=False) 
+    app.run(host='0.0.0.0', port=5001, debug=False) 

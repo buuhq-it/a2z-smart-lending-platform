@@ -1,4 +1,312 @@
-<div class="card">
-  <div class="font-semibold text-xl mb-4">Empty Page</div>
-  <p>Use this page to start from scratch and place your custom content.</p>
+<div class="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-4">
+  <div class="max-w-4xl mx-auto">
+    <p-card class="shadow-xl border-0 overflow-hidden">
+      <!-- Custom Header -->
+      <ng-template pTemplate="header">
+        <div class="bg-gradient-to-r from-blue-600 to-indigo-600 text-white p-6">
+          <div class="flex items-center gap-3">
+            <i class="pi pi-dollar text-2xl"></i>
+            <div>
+              <h1 class="text-2xl font-bold mb-1">Dự đoán khả năng trả nợ</h1>
+              <p class="text-blue-100 text-sm">Nhập thông tin để đánh giá khả năng trả nợ của Khách hàng</p>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+
+      <!-- Form Content -->
+      <div class="p-8">
+        <form (ngSubmit)="onSubmit()" #predictForm="ngForm" class="space-y-8">
+          
+          <!-- Financial Information Section -->
+          <div class="space-y-4">
+            <div class="flex items-center gap-2 mb-4">
+              <i class="pi pi-dollar text-blue-600 text-lg"></i>
+              <h3 class="text-lg font-semibold text-gray-800">Thông tin tài chính</h3>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="space-y-2">
+                <label for="AMT_INCOME_TOTAL" class="block text-sm font-medium text-gray-700">
+                  Tổng thu nhập (VND)
+                </label>
+                <p-inputNumber 
+                  inputId="AMT_INCOME_TOTAL" 
+                  [(ngModel)]="formData.AMT_INCOME_TOTAL" 
+                  name="AMT_INCOME_TOTAL" 
+                  mode="decimal" 
+                  [minFractionDigits]="0" 
+                  placeholder="Nhập tổng thu nhập" 
+                  required 
+                  class="w-full" 
+                  [disabled]="predicting"
+                  styleClass="h-12">
+                </p-inputNumber>
+                <div *ngIf="formData.AMT_INCOME_TOTAL > 0" class="text-xs text-gray-500">
+                  {{ formatCurrency(formData.AMT_INCOME_TOTAL) }}
+                </div>
+              </div>
+
+              <div class="space-y-2">
+                <label for="AMT_CREDIT" class="block text-sm font-medium text-gray-700">
+                  Số tiền vay (VND)
+                </label>
+                <p-inputNumber 
+                  inputId="AMT_CREDIT" 
+                  [(ngModel)]="formData.AMT_CREDIT" 
+                  name="AMT_CREDIT" 
+                  mode="decimal" 
+                  [minFractionDigits]="0" 
+                  placeholder="Nhập số tiền vay" 
+                  required 
+                  class="w-full" 
+                  [disabled]="predicting"
+                  styleClass="h-12">
+                </p-inputNumber>
+                <div *ngIf="formData.AMT_CREDIT > 0" class="text-xs text-gray-500">
+                  {{ formatCurrency(formData.AMT_CREDIT) }}
+                </div>
+              </div>
+
+              <div class="space-y-2">
+                <label for="AMT_ANNUITY" class="block text-sm font-medium text-gray-700">
+                  Tiền trả góp hàng tháng (VND)
+                </label>
+                <p-inputNumber 
+                  inputId="AMT_ANNUITY" 
+                  [(ngModel)]="formData.AMT_ANNUITY" 
+                  name="AMT_ANNUITY" 
+                  mode="decimal" 
+                  [minFractionDigits]="0" 
+                  placeholder="Nhập tiền trả góp" 
+                  required 
+                  class="w-full" 
+                  [disabled]="predicting"
+                  styleClass="h-12">
+                </p-inputNumber>
+                <div *ngIf="formData.AMT_ANNUITY > 0" class="text-xs text-gray-500">
+                  {{ formatCurrency(formData.AMT_ANNUITY) }}
+                </div>
+              </div>
+
+              <div class="space-y-2">
+                <label for="AMT_GOODS_PRICE" class="block text-sm font-medium text-gray-700">
+                  Giá trị tài sản (VND)
+                </label>
+                <p-inputNumber 
+                  inputId="AMT_GOODS_PRICE" 
+                  [(ngModel)]="formData.AMT_GOODS_PRICE" 
+                  name="AMT_GOODS_PRICE" 
+                  mode="decimal" 
+                  [minFractionDigits]="0" 
+                  placeholder="Nhập giá trị tài sản" 
+                  required 
+                  class="w-full" 
+                  [disabled]="predicting"
+                  styleClass="h-12">
+                </p-inputNumber>
+                <div *ngIf="formData.AMT_GOODS_PRICE > 0" class="text-xs text-gray-500">
+                  {{ formatCurrency(formData.AMT_GOODS_PRICE) }}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Divider -->
+          <hr class="border-gray-200">
+
+          <!-- Personal Information Section -->
+          <div class="space-y-4">
+            <div class="flex items-center gap-2 mb-4">
+              <i class="pi pi-user text-blue-600 text-lg"></i>
+              <h3 class="text-lg font-semibold text-gray-800">Thông tin cá nhân</h3>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="space-y-2">
+                <label for="AGE" class="block text-sm font-medium text-gray-700">
+                  <i class="pi pi-calendar mr-1"></i>
+                  Tuổi (năm)
+                </label>
+                <p-inputNumber 
+                  inputId="AGE" 
+                  [(ngModel)]="formData.AGE" 
+                  name="AGE" 
+                  mode="decimal" 
+                  [minFractionDigits]="0" 
+                  placeholder="Nhập tuổi" 
+                  required 
+                  class="w-full" 
+                  [disabled]="predicting"
+                  [min]="18"
+                  [max]="100"
+                  styleClass="h-12">
+                </p-inputNumber>
+              </div>
+
+              <div class="space-y-2">
+                <label for="DAYS_EMPLOYED" class="block text-sm font-medium text-gray-700">
+                  <i class="pi pi-briefcase mr-1"></i>
+                  Số ngày làm việc
+                </label>
+                <p-inputNumber 
+                  inputId="DAYS_EMPLOYED" 
+                  [(ngModel)]="formData.DAYS_EMPLOYED" 
+                  name="DAYS_EMPLOYED" 
+                  mode="decimal" 
+                  [minFractionDigits]="0" 
+                  placeholder="Nhập số ngày làm việc" 
+                  required 
+                  class="w-full" 
+                  [disabled]="predicting"
+                  styleClass="h-12">
+                </p-inputNumber>
+                <div *ngIf="formData.DAYS_EMPLOYED > 0" class="text-xs text-gray-500">
+                  Khoảng {{ getYearsFromDays(formData.DAYS_EMPLOYED) }} năm kinh nghiệm
+                </div>
+              </div>
+
+              <div class="space-y-2">
+                <label for="CNT_CHILDREN" class="block text-sm font-medium text-gray-700">
+                  <i class="pi pi-heart mr-1"></i>
+                  Số con
+                </label>
+                <p-inputNumber 
+                  inputId="CNT_CHILDREN" 
+                  [(ngModel)]="formData.CNT_CHILDREN" 
+                  name="CNT_CHILDREN" 
+                  mode="decimal" 
+                  [minFractionDigits]="0" 
+                  placeholder="Nhập số con" 
+                  required 
+                  class="w-full" 
+                  [disabled]="predicting"
+                  [min]="0"
+                  styleClass="h-12">
+                </p-inputNumber>
+              </div>
+            </div>
+          </div>
+
+          <!-- Divider -->
+          <hr class="border-gray-200">
+
+          <!-- Assets Information Section -->
+          <div class="space-y-4">
+            <div class="flex items-center gap-2 mb-4">
+              <i class="pi pi-home text-blue-600 text-lg"></i>
+              <h3 class="text-lg font-semibold text-gray-800">Thông tin tài sản</h3>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="space-y-2">
+                <label for="FLAG_OWN_CAR" class="block text-sm font-medium text-gray-700">
+                  <i class="pi pi-car mr-1"></i>
+                  Sở hữu ô tô
+                </label>
+                <p-dropdown 
+                  inputId="FLAG_OWN_CAR" 
+                  [options]="carOptions" 
+                  [(ngModel)]="formData.FLAG_OWN_CAR" 
+                  name="FLAG_OWN_CAR" 
+                  optionLabel="label" 
+                  optionValue="value" 
+                  placeholder="Chọn" 
+                  required 
+                  [disabled]="predicting"
+                  styleClass="w-full h-12">
+                </p-dropdown>
+              </div>
+
+              <div class="space-y-2">
+                <label for="FLAG_OWN_REALTY" class="block text-sm font-medium text-gray-700">
+                  <i class="pi pi-home mr-1"></i>
+                  Sở hữu bất động sản
+                </label>
+                <p-dropdown 
+                  inputId="FLAG_OWN_REALTY" 
+                  [options]="realtyOptions" 
+                  [(ngModel)]="formData.FLAG_OWN_REALTY" 
+                  name="FLAG_OWN_REALTY" 
+                  optionLabel="label" 
+                  optionValue="value" 
+                  placeholder="Chọn" 
+                  required 
+                  [disabled]="predicting"
+                  styleClass="w-full h-12">
+                </p-dropdown>
+              </div>
+            </div>
+          </div>
+
+          <!-- Submit Button -->
+          <button 
+            pButton 
+            type="submit" 
+            [label]="predicting ? 'Đang phân tích...' : 'Dự đoán khả năng trả nợ'" 
+            [disabled]="predicting" 
+            class="w-full mt-6 h-14 text-lg font-semibold bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 transition-all duration-200">
+            <i class="pi pi-spin pi-spinner mr-2" *ngIf="predicting"></i>
+          </button>
+        </form>
+
+        <!-- Results Section -->
+        <div *ngIf="predictResult" class="mt-8">
+          <p-card class="border-2 border-blue-200 bg-gradient-to-r from-blue-50 to-indigo-50">
+            <ng-template pTemplate="header">
+              <div class="p-4 pb-0">
+                <h3 class="text-xl font-semibold text-blue-800">Kết quả dự đoán</h3>
+              </div>
+            </ng-template>
+
+            <div class="space-y-4">
+              <!-- Main Results -->
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="bg-white p-4 rounded-lg shadow-sm">
+                  <div class="text-sm text-gray-600 mb-1">Dự đoán</div>
+                  <div class="text-lg font-semibold text-gray-800">{{ predictResult.prediction }}</div>
+                </div>
+
+                <div class="bg-white p-4 rounded-lg shadow-sm">
+                  <div class="text-sm text-gray-600 mb-1">Mức độ rủi ro</div>
+                  <span [class]="getRiskLevelClass(predictResult.risk_level)" class="inline-block px-3 py-1 rounded-full text-sm font-medium">
+                    {{ predictResult.risk_level }}
+                  </span>
+                </div>
+              </div>
+
+              <!-- Probability Bars -->
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="bg-white p-4 rounded-lg shadow-sm">
+                  <div class="text-sm text-gray-600 mb-1">Xác suất vỡ nợ</div>
+                  <div class="text-2xl font-bold text-red-600 mb-2">
+                    {{ (predictResult.probability_default * 100).toFixed(1) }}%
+                  </div>
+                  <div class="w-full bg-gray-200 rounded-full h-2">
+                    <div 
+                      class="bg-red-500 h-2 rounded-full transition-all duration-500"
+                      [style.width.%]="predictResult.probability_default * 100">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="bg-white p-4 rounded-lg shadow-sm">
+                  <div class="text-sm text-gray-600 mb-1">Xác suất trả nợ</div>
+                  <div class="text-2xl font-bold text-green-600 mb-2">
+                    {{ (predictResult.probability_repaid * 100).toFixed(1) }}%
+                  </div>
+                  <div class="w-full bg-gray-200 rounded-full h-2">
+                    <div 
+                      class="bg-green-500 h-2 rounded-full transition-all duration-500"
+                      [style.width.%]="predictResult.probability_repaid * 100">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </p-card>
+        </div>
+      </div>
+    </p-card>
+  </div>
 </div>
