@@ -1,15 +1,15 @@
 package smart.lending.infrastructure.entity;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 
+@Entity
+@Table(name = "onboard_lending_apps")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
+//@Builder
 public class OnboardLendingApp {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,7 +20,7 @@ public class OnboardLendingApp {
     private String customerEmail;
     private String customerPhone;
     private String customerAddress;
-    private String loanAmount;
+    private int loanAmount;
     private double loanRate;
     private int tenor;
     private int income;
@@ -29,4 +29,6 @@ public class OnboardLendingApp {
     private int numberOfChildren;
     private boolean hasOwnCar;
     private boolean hasOwnRealty;
+    private String appStatus;
+    private String appStage;
 }

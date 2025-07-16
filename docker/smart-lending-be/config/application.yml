@@ -1,0 +1,6 @@
+spring:
+  profiles:
+    active: uat
+  application:
+    name: smart-lending-be
+

@@ -15,11 +15,11 @@ import java.util.List;
 @RequiredArgsConstructor
 public class UserService {
     private final UserRepository userRepository;
-    private final UserMapper userMapper;
+//    private final UserMapper userMapper;
 
     public List<UserResponse> getUsers(Long cursor, int size) {
         Pageable pageable = PageRequest.of(0, size);
         List<User> users = userRepository.findNextUsers(cursor, pageable);
-        return users.stream().map(userMapper::toUserResponse).toList();
+        return users.stream().map(UserMapper.INSTANCE::toUserResponse).toList();
     }
 }

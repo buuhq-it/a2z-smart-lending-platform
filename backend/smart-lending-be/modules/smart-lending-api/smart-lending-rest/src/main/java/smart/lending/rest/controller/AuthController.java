@@ -13,13 +13,14 @@ import smart.lending.rest.payload.RequestWrapper;
 import smart.lending.rest.payload.ResponseBuilder;
 
 @RestController
-@RequestMapping("/api/auth")
+@RequestMapping("/auth")
 @RequiredArgsConstructor
 public class AuthController {
     private final AuthService authService;
 
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody RequestWrapper<LoginRequest> request) {
+//    public ResponseEntity<?> login(@RequestBody LoginRequest request) {
 //        if (request.getTraceId() == null || request.getTraceId().isEmpty()) {
 //            request.setTraceId("trace-" + UUID.randomUUID());
 //        }

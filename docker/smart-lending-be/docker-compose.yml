@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  spring-app:
+    image: eclipse-temurin:21-jdk-jammy
+    container_name: smart-lending-be
+    working_dir: /app
+    volumes:
+      - ./smart-lending-rest-app-1.0-SNAPSHOT.jar:/app/app.jar
+      - ./config:/app/config
+      - ./logs:/app/logs
+    command: >
+      java -jar app.jar
+      --spring.config.location=file:/app/config/
+    networks:
+      - net-db
+    ports:
+      - "6201:6201"
+    restart: unless-stopped
+
+networks:
+  net-db:
+    name: net-db
+    external: true
+    driver: bridge
