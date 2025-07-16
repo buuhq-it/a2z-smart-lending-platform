@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Router } from '@angular/router';
 import { MenuItem } from 'primeng/api';
 import { LayoutMenuitem } from './layout.menuitem';
 
@@ -19,6 +19,7 @@ import { LayoutMenuitem } from './layout.menuitem';
 })
 export class LayoutMenu {
     model: MenuItem[] = [];
+    constructor(private router: Router) {}
 
     ngOnInit() {
         this.model = [
@@ -61,9 +62,17 @@ export class LayoutMenu {
                         icon: 'pi pi-fw pi-user',
                         items: [
                             {
-                                label: 'Login',
-                                icon: 'pi pi-fw pi-sign-in',
-                                routerLink: ['/auth/login']
+                                label: 'Đăng xuất',
+                                icon: 'pi pi-fw pi-sign-out',
+                                command: () => {
+                                    localStorage.removeItem('token');
+                                    localStorage.removeItem('username');
+                                    localStorage.removeItem('loginTime');
+                                    sessionStorage.removeItem('token');
+                                    sessionStorage.removeItem('username');
+                                    sessionStorage.removeItem('loginTime');
+                                    window.location.href = '/auth/login';
+                                }
                             },
                             {
                                 label: 'Error',

@@ -28,10 +28,6 @@ export class AuthService {
     return this.http.post<any>(`${environment.apiBaseUrl}/auth/login`, payload);
   }
 
-  logout(): void {
-    localStorage.removeItem(this.tokenKey);
-    this.router.navigate(['/auth/login']);
-  }
 
   setToken(token: string): void {
     localStorage.setItem(this.tokenKey, token);

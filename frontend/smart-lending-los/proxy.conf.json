@@ -1,0 +1,8 @@
+{
+  "/api": {
+    "target": "https://smart-lending.technote.online",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  }
+} 
