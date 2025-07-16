@@ -107,6 +107,8 @@ java --version
 mvnw clean install
 ## run app
 mvnw spring-boot:run -pl modules\smart-lending-api\smart-lending-rest-app
+
+./mvnw clean package -pl modules/smart-lending-api/smart-lending-rest-app
 ```
 ```text
 url api doc: http://localhost:9091/swagger-ui/index.html

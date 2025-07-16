@@ -8,7 +8,8 @@ import smart.lending.infrastructure.entity.User;
 
 import java.util.List;
 
-@Mapper(componentModel = "spring")
+//@Mapper(componentModel = "spring")
+@Mapper
 public interface UserMapper {
     UserMapper INSTANCE = Mappers.getMapper(UserMapper.class);
 

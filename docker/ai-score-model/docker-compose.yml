@@ -1,0 +1,17 @@
+version: "3.8"
+services:
+  ai-service:
+    build:
+      context: ./
+    container_name: ai-score-model
+    networks:
+      - net-db
+    ports:
+      - "6202:6202"
+    restart: always
+
+networks:
+  net-db:
+    name: net-db
+    external: true
+    driver: bridge

@@ -24,7 +24,8 @@ public class SecurityConfig {
                 .cors(withDefaults())
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/auth/**").permitAll()
+                        .requestMatchers("/auth/**").permitAll()
+                        .requestMatchers("/public/flow/**").permitAll()
                         .requestMatchers("/swagger-ui/**", "/v3/api-docs*/**").permitAll()
                         .anyRequest().authenticated()
                 )
@@ -35,7 +36,8 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
-        config.setAllowedOrigins(List.of("http://localhost:4200")); // FE port
+        config.setAllowedOrigins(List.of("*"));
+//        config.setAllowedOrigins(List.of("http://localhost:4200")); // FE port
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(List.of("*"));
         config.setAllowCredentials(true);
