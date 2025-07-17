@@ -1,3 +1,4 @@
+import 'package:a2z_admin/pages/create_loan_page.dart';
 import 'package:a2z_admin/pages/risk_prediction_page.dart';
 import 'package:flutter/material.dart';
 import '../models/dashboard_models.dart';
@@ -346,9 +347,10 @@ class _HomePageState extends State<HomePage> {
                     leading: const Icon(Icons.add, color: Colors.blue),
                     title: const Text('Tạo khoản vay mới'),
                     onTap: () {
-                      Navigator.pop(context);
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(content: Text('Tạo khoản vay mới')),
+                       Navigator.pop(context);
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const CreateLoanPage()),
                       );
                     },
                   ),
