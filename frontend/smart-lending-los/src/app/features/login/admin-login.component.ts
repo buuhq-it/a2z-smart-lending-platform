@@ -1,6 +1,6 @@
 import { FormsModule } from "@angular/forms"
 import { CommonModule } from "@angular/common"
-import { Component, inject, OnInit } from "@angular/core"
+import { Component, inject } from "@angular/core"
 import { HttpClient } from "@angular/common/http"
 import { Router } from "@angular/router"
 import { InputTextModule } from "primeng/inputtext"
@@ -65,7 +65,7 @@ interface ApiResponse {
   templateUrl: "./admin-login.component.html",
   styleUrl: "./admin-login.component.scss",
 })
-export class AdminLoginComponent implements OnInit {
+export class AdminLoginComponent {
   private http = inject(HttpClient)
   private router = inject(Router)
 
@@ -79,13 +79,6 @@ export class AdminLoginComponent implements OnInit {
   errorMessage = ""
 
   constructor() {}
-
-  ngOnInit() {
-    const token = localStorage.getItem('token') || sessionStorage.getItem('token');
-    if (token) {
-      this.router.navigate(['/admin/dashboard']);
-    }
-  }
 
   private generateRequestId(): string {
     // return Date.now().toString() + Math.random().toString(36).substr(2, 9)
@@ -109,11 +102,10 @@ export class AdminLoginComponent implements OnInit {
     }
 
     // Prepare API request according to your format
-    const now = new Date();
     const apiRequest: ApiRequest = {
       requestId: this.generateRequestId(),
       traceId: this.generateTraceId(),
-      requestTime: now.toISOString(),
+      requestTime: new Date().toISOString(),
       body: {
         username: this.loginData.username,
         password: this.loginData.password
@@ -125,19 +117,9 @@ export class AdminLoginComponent implements OnInit {
       }
     }
 
-    // Log chi tiết từng trường
-    console.log('Login API Request:', apiRequest);
-    console.log('requestId:', apiRequest.requestId);
-    console.log('traceId:', apiRequest.traceId);
-    console.log('requestTime:', apiRequest.requestTime);
-    console.log('username:', apiRequest.body.username);
-    console.log('password:', apiRequest.body.password);
-    console.log('metadata:', apiRequest.metadata);
-
     // Call login API
     this.http.post<ApiResponse>("https://smart-lending.technote.online/api/auth/login", apiRequest).subscribe({
       next: (response: ApiResponse) => {
-        console.log('Login API Response:', response);
         if (response.success && response.body?.token) {
           // Save token and user info
           const storage = this.loginData.rememberMe ? localStorage : sessionStorage
@@ -145,7 +127,7 @@ export class AdminLoginComponent implements OnInit {
           storage.setItem('username', this.loginData.username)
           storage.setItem('loginTime', new Date().toISOString())
           // Redirect to dashboard
-          this.router.navigate(['/admin/dashboard'])
+          this.router.navigate([''])
         } else {
           this.errorMessage = response.errorDesc || "Đăng nhập thất bại"
         }

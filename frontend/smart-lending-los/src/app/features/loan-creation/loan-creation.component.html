@@ -1,0 +1,385 @@
+<p-toast></p-toast>
+<div class="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-4">
+    <div class="max-w-4xl mx-auto">
+      
+      <!-- Header with Logout -->
+      <div class="flex justify-between items-center mb-6">
+        <div>
+          <h1 class="text-2xl font-bold text-gray-900">Smart Lending Admin</h1>
+          <p class="text-gray-600">Tạo khoản vay mới</p>
+        </div>
+      </div>
+  
+      <p-card class="shadow-xl border-0 overflow-hidden">
+        <!-- Custom Header -->
+        <ng-template pTemplate="header">
+          <div class="bg-gradient-to-r from-blue-600 to-indigo-600 text-white p-6">
+            <div class="flex items-center gap-3">
+              <i class="pi pi-dollar text-2xl"></i>
+              <div>
+                <h2 class="text-2xl font-bold mb-1">Tạo khoản vay mới</h2>
+                <p class="text-blue-100 text-sm">Nhập thông tin khách hàng và khoản vay</p>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+  
+        <!-- Form Content -->
+        <div class="p-8">
+          <form (ngSubmit)="onSubmit()" #loanForm="ngForm" class="space-y-8">
+            
+            <!-- Messages -->
+            <p-message 
+              *ngIf="errorMessage" 
+              severity="error" 
+              [text]="errorMessage"
+              styleClass="w-full">
+            </p-message>
+  
+            <p-message 
+              *ngIf="successMessage" 
+              severity="success" 
+              [text]="successMessage"
+              styleClass="w-full">
+            </p-message>
+  
+            <!-- Customer Information Section -->
+            <div class="space-y-4">
+              <div class="flex items-center gap-2 mb-4">
+                <i class="pi pi-user text-blue-600 text-lg"></i>
+                <h3 class="text-lg font-semibold text-gray-800">Thông tin khách hàng</h3>
+              </div>
+              
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="space-y-2">
+                  <label for="customerNationalId" class="block text-sm font-medium text-gray-700">
+                    CMND/CCCD *
+                  </label>
+                  <input 
+                    pInputText 
+                    id="customerNationalId" 
+                    [(ngModel)]="loanData.customerNationalId" 
+                    name="customerNationalId" 
+                    placeholder="Nhập số CMND/CCCD" 
+                    required 
+                    class="w-full h-12" 
+                    [disabled]="isLoading"
+                  />
+                </div>
+  
+                <div class="space-y-2">
+                  <label for="customerFullName" class="block text-sm font-medium text-gray-700">
+                    Họ và tên *
+                  </label>
+                  <input 
+                    pInputText 
+                    id="customerFullName" 
+                    [(ngModel)]="loanData.customerFullName" 
+                    name="customerFullName" 
+                    placeholder="Nhập họ và tên" 
+                    required 
+                    class="w-full h-12" 
+                    [disabled]="isLoading"
+                  />
+                </div>
+  
+                <div class="space-y-2">
+                  <label for="customerEmail" class="block text-sm font-medium text-gray-700">
+                    Email *
+                  </label>
+                  <input 
+                    pInputText 
+                    id="customerEmail" 
+                    type="email"
+                    [(ngModel)]="loanData.customerEmail" 
+                    name="customerEmail" 
+                    placeholder="Nhập email" 
+                    required 
+                    class="w-full h-12" 
+                    [disabled]="isLoading"
+                  />
+                </div>
+  
+                <div class="space-y-2">
+                  <label for="customerPhone" class="block text-sm font-medium text-gray-700">
+                    Số điện thoại *
+                  </label>
+                  <input 
+                    pInputText 
+                    id="customerPhone" 
+                    [(ngModel)]="loanData.customerPhone" 
+                    name="customerPhone" 
+                    placeholder="Nhập số điện thoại" 
+                    required 
+                    class="w-full h-12" 
+                    [disabled]="isLoading"
+                  />
+                </div>
+  
+                <div class="space-y-2 md:col-span-2">
+                  <label for="customerAddress" class="block text-sm font-medium text-gray-700">
+                    Địa chỉ
+                  </label>
+                  <input 
+                    pInputText 
+                    id="customerAddress" 
+                    [(ngModel)]="loanData.customerAddress" 
+                    name="customerAddress" 
+                    placeholder="Nhập địa chỉ" 
+                    class="w-full h-12" 
+                    [disabled]="isLoading"
+                  />
+                </div>
+              </div>
+            </div>
+  
+            <!-- Divider -->
+            <hr class="border-gray-200">
+  
+            <!-- Personal Information Section -->
+            <div class="space-y-4">
+              <div class="flex items-center gap-2 mb-4">
+                <i class="pi pi-id-card text-blue-600 text-lg"></i>
+                <h3 class="text-lg font-semibold text-gray-800">Thông tin cá nhân</h3>
+              </div>
+              
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="space-y-2">
+                  <label for="age" class="block text-sm font-medium text-gray-700">
+                    Tuổi *
+                  </label>
+                  <p-inputNumber 
+                    inputId="age" 
+                    [(ngModel)]="loanData.age" 
+                    name="age" 
+                    mode="decimal" 
+                    [minFractionDigits]="0" 
+                    placeholder="Nhập tuổi" 
+                    required 
+                    class="w-full" 
+                    [disabled]="isLoading"
+                    [min]="18"
+                    [max]="100"
+                    styleClass="h-12">
+                  </p-inputNumber>
+                </div>
+  
+                <div class="space-y-2">
+                  <label for="gender" class="block text-sm font-medium text-gray-700">
+                    Giới tính
+                  </label>
+                  <p-dropdown 
+                    inputId="gender" 
+                    [options]="genderOptions" 
+                    [(ngModel)]="loanData.gender" 
+                    name="gender" 
+                    optionLabel="label" 
+                    optionValue="value" 
+                    placeholder="Chọn giới tính" 
+                    [disabled]="isLoading"
+                    styleClass="w-full h-12">
+                  </p-dropdown>
+                </div>
+  
+                <div class="space-y-2">
+                  <label for="numberOfChildren" class="block text-sm font-medium text-gray-700">
+                    Số con
+                  </label>
+                  <p-inputNumber 
+                    inputId="numberOfChildren" 
+                    [(ngModel)]="loanData.numberOfChildren" 
+                    name="numberOfChildren" 
+                    mode="decimal" 
+                    [minFractionDigits]="0" 
+                    placeholder="Số con" 
+                    class="w-full" 
+                    [disabled]="isLoading"
+                    [min]="0"
+                    styleClass="h-12">
+                  </p-inputNumber>
+                </div>
+              </div>
+  
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="space-y-2">
+                  <label class="block text-sm font-medium text-gray-700">
+                    Sở hữu ô tô
+                  </label>
+                  <div class="flex items-center">
+                    <p-checkbox 
+                      inputId="hasOwnCar" 
+                      [(ngModel)]="loanData.hasOwnCar" 
+                      name="hasOwnCar" 
+                      [binary]="true"
+                      [disabled]="isLoading">
+                    </p-checkbox>
+                    <label for="hasOwnCar" class="ml-2 text-sm text-gray-600">
+                      Có sở hữu ô tô
+                    </label>
+                  </div>
+                </div>
+  
+                <div class="space-y-2">
+                  <label class="block text-sm font-medium text-gray-700">
+                    Sở hữu bất động sản
+                  </label>
+                  <div class="flex items-center">
+                    <p-checkbox 
+                      inputId="hasOwnRealty" 
+                      [(ngModel)]="loanData.hasOwnRealty" 
+                      name="hasOwnRealty" 
+                      [binary]="true"
+                      [disabled]="isLoading">
+                    </p-checkbox>
+                    <label for="hasOwnRealty" class="ml-2 text-sm text-gray-600">
+                      Có sở hữu bất động sản
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+            <!-- Divider -->
+            <hr class="border-gray-200">
+  
+            <!-- Loan Information Section -->
+            <div class="space-y-4">
+              <div class="flex items-center gap-2 mb-4">
+                <i class="pi pi-dollar text-blue-600 text-lg"></i>
+                <h3 class="text-lg font-semibold text-gray-800">Thông tin khoản vay</h3>
+              </div>
+              
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="space-y-2">
+                  <label for="loanAmount" class="block text-sm font-medium text-gray-700">
+                    Số tiền vay (VND) *
+                  </label>
+                  <p-inputNumber 
+                    inputId="loanAmount" 
+                    [(ngModel)]="loanData.loanAmount" 
+                    name="loanAmount" 
+                    mode="decimal" 
+                    [minFractionDigits]="0" 
+                    placeholder="Nhập số tiền vay" 
+                    required 
+                    class="w-full" 
+                    [disabled]="isLoading"
+                    styleClass="h-12">
+                  </p-inputNumber>
+                  <div *ngIf="loanData.loanAmount > 0" class="text-xs text-gray-500">
+                    {{ formatCurrency(loanData.loanAmount) }}
+                  </div>
+                </div>
+  
+                <div class="space-y-2">
+                  <label for="income" class="block text-sm font-medium text-gray-700">
+                    Thu nhập (VND) *
+                  </label>
+                  <p-inputNumber 
+                    inputId="income" 
+                    [(ngModel)]="loanData.income" 
+                    name="income" 
+                    mode="decimal" 
+                    [minFractionDigits]="0" 
+                    placeholder="Nhập thu nhập" 
+                    required 
+                    class="w-full" 
+                    [disabled]="isLoading"
+                    styleClass="h-12">
+                  </p-inputNumber>
+                  <div *ngIf="loanData.income > 0" class="text-xs text-gray-500">
+                    {{ formatCurrency(loanData.income) }}
+                  </div>
+                </div>
+  
+                <div class="space-y-2">
+                  <label for="loanRate" class="block text-sm font-medium text-gray-700">
+                    Lãi suất
+                  </label>
+                  <p-dropdown 
+                    inputId="loanRate" 
+                    [options]="loanRateOptions" 
+                    [(ngModel)]="loanData.loanRate" 
+                    name="loanRate" 
+                    optionLabel="label" 
+                    optionValue="value" 
+                    placeholder="Chọn lãi suất" 
+                    [disabled]="isLoading"
+                    styleClass="w-full h-12">
+                  </p-dropdown>
+                </div>
+  
+                <div class="space-y-2">
+                  <label for="tenor" class="block text-sm font-medium text-gray-700">
+                    Thời hạn vay
+                  </label>
+                  <p-dropdown 
+                    inputId="tenor" 
+                    [options]="tenorOptions" 
+                    [(ngModel)]="loanData.tenor" 
+                    name="tenor" 
+                    optionLabel="label" 
+                    optionValue="value" 
+                    placeholder="Chọn thời hạn" 
+                    [disabled]="isLoading"
+                    styleClass="w-full h-12">
+                  </p-dropdown>
+                </div>
+              </div>
+  
+              <!-- Monthly Payment Calculation -->
+              <div *ngIf="calculateMonthlyPayment() > 0" class="bg-blue-50 p-4 rounded-lg">
+                <div class="flex items-center gap-2 mb-2">
+                  <i class="pi pi-calculator text-blue-600"></i>
+                  <span class="font-medium text-gray-800">Số tiền trả hàng tháng (dự kiến)</span>
+                </div>
+                <div class="text-2xl font-bold text-blue-600">
+                  {{ formatCurrency(calculateMonthlyPayment()) }}
+                </div>
+              </div>
+            </div>
+  
+            <!-- Action Buttons -->
+            <div class="flex gap-4">
+              <button 
+                pButton 
+                type="submit" 
+                [label]="isLoading ? 'Đang xử lý...' : 'Tạo khoản vay'" 
+                [disabled]="isLoading" 
+                class="flex-1 h-14 text-lg font-semibold bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 transition-all duration-200">
+                <i class="pi pi-spin pi-spinner mr-2" *ngIf="isLoading"></i>
+                <i class="pi pi-plus mr-2" *ngIf="!isLoading"></i>
+              </button>
+  
+              <button 
+                pButton 
+                type="button" 
+                label="Làm mới" 
+                (click)="resetForm()"
+                [disabled]="isLoading" 
+                class="p-button-outlined p-button-secondary h-14 px-8">
+                <i class="pi pi-refresh mr-2"></i>
+              </button>
+            </div>
+          </form>
+  
+          <!-- Results Section -->
+          <div *ngIf="loanResult" class="mt-8">
+            <p-card class="border-2 border-green-200 bg-gradient-to-r from-green-50 to-emerald-50">
+              <ng-template pTemplate="header">
+                <div class="p-4 pb-0">
+                  <h3 class="text-xl font-semibold text-green-800">Kết quả tạo khoản vay</h3>
+                </div>
+              </ng-template>
+  
+              <div class="space-y-4">
+                <div class="bg-white p-4 rounded-lg shadow-sm">
+                  <pre class="text-sm text-gray-600">{{ loanResult | json }}</pre>
+                </div>
+              </div>
+            </p-card>
+          </div>
+        </div>
+      </p-card>
+    </div>
+  </div>

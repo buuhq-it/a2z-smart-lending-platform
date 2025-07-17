@@ -1,7 +1,7 @@
 import { FormsModule } from "@angular/forms"
 import { CommonModule } from "@angular/common"
 import { Component, inject } from "@angular/core"
-import { HttpClient } from "@angular/common/http" // Declared HttpClient here
+import { HttpClient } from "@angular/common/http"
 import { InputNumberModule } from "primeng/inputnumber"
 import { DropdownModule } from "primeng/dropdown"
 import { ButtonModule } from "primeng/button"
@@ -28,7 +28,7 @@ interface PredictResult {
 }
 
 @Component({
-  selector: "app-home",
+  selector: "app-predict",
   standalone: true,
   imports: [
     CommonModule,
@@ -39,10 +39,10 @@ interface PredictResult {
     CardModule,
     ProgressSpinnerModule,
   ],
-  templateUrl: "./home.component.html",
-  styleUrl: "./home.component.scss",
+  templateUrl: "./predict.component.html",
+  styleUrl: "./predict.component.scss",
 })
-export class HomeComponent {
+export class PredictComponent {
   private http = inject(HttpClient)
 
   formData: FormData = {
@@ -79,11 +79,12 @@ export class HomeComponent {
     const apiData = {
       ...this.formData,
       DAYS_BIRTH: this.formData.AGE ? -(this.formData.AGE * 365) : null,
+      EXT_SOURCE_2: 1,
     }
 
     delete (apiData as any).AGE
 
-    this.http.post<any>("http://127.0.0.1:5001/predict", apiData).subscribe({
+    this.http.post<any>("https://smart-lending.technote.online/ai/predict", apiData).subscribe({
       next: (res: any) => {
         this.predictResult = res.prediction
         this.predicting = false
