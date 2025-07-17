@@ -1,3 +1,4 @@
+import 'package:a2z_admin/pages/create_loan_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../models/prediction_models.dart';
@@ -552,6 +553,49 @@ class _RiskPredictionPageState extends State<RiskPredictionPage> {
                         ],
                       ),
                     ),
+                    if (_shouldShowApproveButton(_predictionResult!)) ...[
+                      const SizedBox(height: 24),
+                      SizedBox(
+                        width: double.infinity,
+                        height: 50,
+                        child: ElevatedButton.icon(
+                          onPressed: () {
+                            // Chuyển sang màn hình tạo khoản vay với dữ liệu từ dự đoán
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => CreateLoanPage(
+                                  initialData: {
+                                    'income': _incomeController.text,
+                                    'age': _ageController.text,
+                                    'children': _childrenController.text,
+                                    'hasOwnCar': _ownCar,
+                                    'hasOwnRealty': _ownRealty,
+                                    'loan_amount': _creditController.text
+                                  },
+                                ),
+                              ),
+                            );
+                          },
+                          icon: const Icon(Icons.check_circle),
+                          label: const Text(
+                            'Chấp thuận cho vay',
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.green[600],
+                            foregroundColor: Colors.white,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                            elevation: 2,
+                          ),
+                        ),
+                      ),
+                    ],
                   ],
                 ),
               ),
@@ -573,5 +617,20 @@ class _RiskPredictionPageState extends State<RiskPredictionPage> {
       default:
         return 'Cần đánh giá thêm thông tin để đưa ra quyết định.';
     }
+  }
+
+  bool _shouldShowApproveButton(PredictionResult result) {
+    // Hiển thị nút khi rủi ro thấp
+    if (result.riskLevel.toLowerCase() == 'low') {
+      return true;
+    }
+    
+    // Hiển thị nút khi rủi ro trung bình nhưng xác suất trả nợ cao
+    if (result.riskLevel.toLowerCase() == 'medium' && result.probabilityRepaid >= 0.7) {
+      return true;
+    }
+    
+    // Không hiển thị nút khi rủi ro cao
+    return false;
   }
 }

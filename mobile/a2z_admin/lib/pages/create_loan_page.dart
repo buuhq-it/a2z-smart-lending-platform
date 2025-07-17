@@ -5,7 +5,12 @@ import '../services/loan_service.dart';
 import '../widgets/stat_card.dart';
 
 class CreateLoanPage extends StatefulWidget {
-  const CreateLoanPage({super.key});
+  final Map<String, dynamic>? initialData;
+  
+  const CreateLoanPage({
+    super.key,
+    this.initialData,
+  });
 
   @override
   State<CreateLoanPage> createState() => _CreateLoanPageState();
@@ -33,6 +38,49 @@ class _CreateLoanPageState extends State<CreateLoanPage> {
   bool _hasOwnRealty = false;
   bool _isLoading = false;
 
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    if (widget.initialData != null) {
+      final data = widget.initialData!;
+      
+      if (data['income'] != null) {
+        _incomeController.text = data['income'].toString();
+      }
+
+      if (data['loan_amount'] != null) {
+        _loanAmountController.text = data['loan_amount'].toString();
+      }
+      
+      if (data['age'] != null) {
+        _ageController.text = data['age'].toString();
+      }
+      
+      if (data['children'] != null) {
+        _childrenController.text = data['children'].toString();
+      }
+      
+      if (data['hasOwnCar'] != null) {
+        _hasOwnCar = data['hasOwnCar'] as bool;
+      }
+      
+      if (data['hasOwnRealty'] != null) {
+        _hasOwnRealty = data['hasOwnRealty'] as bool;
+      }
+    
+      // Hiển thị thông báo khi dữ liệu được điền từ màn hình dự đoán
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Vui lòng bổ sung thông tin của người vaylòng!'),
+            backgroundColor: Colors.green,
+            duration: Duration(seconds: 3),
+          ),
+        );
+      });
+    }
+  }
   @override
   void dispose() {
     _nationalIdController.dispose();
