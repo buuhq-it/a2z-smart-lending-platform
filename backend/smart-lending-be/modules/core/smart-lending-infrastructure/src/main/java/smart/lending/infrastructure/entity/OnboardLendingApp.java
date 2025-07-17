@@ -30,5 +30,6 @@ public class OnboardLendingApp {
     private boolean hasOwnCar;
     private boolean hasOwnRealty;
     private String appStatus;
+    private String reason;
     private String appStage;
 }

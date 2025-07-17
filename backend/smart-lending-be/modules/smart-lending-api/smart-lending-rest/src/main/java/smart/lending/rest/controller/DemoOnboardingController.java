@@ -5,15 +5,17 @@ import org.flowable.engine.RuntimeService;
 import org.flowable.engine.TaskService;
 import org.flowable.engine.runtime.ProcessInstance;
 import org.flowable.task.api.Task;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 import smart.lending.domain.model.OnboardAcquisitionRequest;
 import smart.lending.domain.model.OnboardESignRequest;
 import smart.lending.domain.service.OnboardLendingAppService;
+import smart.lending.infrastructure.entity.OnboardLendingApp;
 import smart.lending.rest.payload.RequestWrapper;
+import smart.lending.rest.payload.ResponseBuilder;
+import smart.lending.rest.payload.ResponseWrapper;
 
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -28,6 +30,7 @@ public class DemoOnboardingController {
 
     @PostMapping("/acquisition")
     public String acquisition(@RequestBody RequestWrapper<OnboardAcquisitionRequest> request) {
+        var requestBody = request.getBody();
         // Step 1: start process
         ProcessInstance processInstance = runtimeService.startProcessInstanceByKey(processDefinitionKey);
         var processInstanceId = processInstance.getId();
@@ -37,23 +40,37 @@ public class DemoOnboardingController {
                 .processInstanceId(processInstanceId)
                 .taskDefinitionKey("acquisition-step")
                 .singleResult();
-        taskService.complete(task.getId(), Map.of("acquisitionNote", "done"));
-        // Step 3: StoreDb
-        var entity = onboardLendingAppService.storeAcquisitionStep(processInstanceId, request.getBody());
+
+        var entity = onboardLendingAppService.storeAcquisitionStep(processInstanceId, requestBody);
+        //loanAppId
+        taskService.complete(task.getId(), Map.of(
+                "customerNationalId", requestBody.getCustomerNationalId(),
+                "loanAppId",entity.getId()));
+
         return processInstanceId;
     }
 
     @PostMapping("/esign")
     public String esign(@RequestBody RequestWrapper<OnboardESignRequest> request) {
-        var processInstanceId = request.getBody().getProcessInstanceId();
+        var requestBody = request.getBody();
+        var processInstanceId = requestBody.getProcessInstanceId();
         Task task = taskService.createTaskQuery()
                 .processInstanceId(processInstanceId)
                 .taskDefinitionKey("esign-step")
                 .singleResult();
-        taskService.complete(task.getId(), Map.of("esignNote", "done"));
+        taskService.complete(task.getId(), Map.of("esign-Note", "done"));
 
-        var entity = onboardLendingAppService.updateESignStep(processInstanceId);
+//        var entity = onboardLendingAppService.updateESignStep(processInstanceId);
         return "esign success";
+    }
+
+    @GetMapping("/getAllApps")
+    public ResponseEntity<ResponseWrapper<List<OnboardLendingApp>>> getAllApps() {
+        List<OnboardLendingApp> body =  onboardLendingAppService.getAllApps();
+        return ResponseEntity.ok(ResponseBuilder.<List<OnboardLendingApp>>builder()
+                .body(body)
+//                .metadata("nextCursor", nextCursor)
+                .build());
     }
 
 }

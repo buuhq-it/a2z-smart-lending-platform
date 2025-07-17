@@ -111,3 +111,4 @@ backend/**/*.egg-info/
 docker/pgadmin4-data/
 docker/postgres-data/
 docker/mysql-data/
+docker/smart-lending-be/
