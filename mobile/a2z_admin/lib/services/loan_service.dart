@@ -12,7 +12,7 @@ class LoanService {
     // final random = Random();
     return "112233445566";
   }
-  
+
   String _generateTraceId() {
     // final random = Random();
     // return random.nextInt(99999999).toString().padLeft(8, '0');
@@ -59,6 +59,74 @@ class LoanService {
       }
     } catch (e) {
       throw Exception('Lỗi tạo khoản vay: $e');
+    }
+  }
+
+  Future<List<LoanApplication>> getAllLoanApplications() async {
+    try {
+      final token = await TokenService.getToken();
+      if (token == null) {
+        throw Exception('Không tìm thấy token xác thực');
+      }
+      final response = await http.get(
+        Uri.parse('$baseUrl/process/demo-onboarding/getAllApps'),
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'Authorization': 'Bearer $token',
+        },
+      );
+      if (response.statusCode == 200) {
+        final data = jsonDecode(response.body);
+        final List<dynamic> body = data['body'] ?? [];
+        return body.map((e) => LoanApplication.fromJson(e)).toList();
+      } else {
+        throw Exception('HTTP ${response.statusCode}: ${response.body}');
+      }
+    } catch (e) {
+      throw Exception('Lỗi lấy danh sách khoản vay: $e');
+    }
+  }
+
+  Future<bool> approveLoanApplication(String processInstanceId) async {
+    try {
+      final token = await TokenService.getToken();
+      if (token == null) {
+        throw Exception('Không tìm thấy token xác thực');
+      }
+      final requestId = _generateRequestId();
+      final traceId = _generateTraceId();
+      final requestTime = DateTime.now().toUtc().toIso8601String();
+      final body = {
+        'requestId': requestId,
+        'traceId': traceId,
+        'requestTime': requestTime,
+        'body': {
+          'processInstanceId': processInstanceId,
+        },
+        'metadata': {
+          'additionalProp1': {},
+          'additionalProp2': {},
+          'additionalProp3': {},
+        },
+      };
+      final response = await http.post(
+        Uri.parse('$baseUrl/process/demo-onboarding/esign'),
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'Authorization': 'Bearer $token',
+        },
+        body: jsonEncode(body),
+      );
+      if (response.statusCode == 200) {
+        final data = jsonDecode(response.body);
+        return data['success'] == true;
+      } else {
+        throw Exception('HTTP ${response.statusCode}: ${response.body}');
+      }
+    } catch (e) {
+      throw Exception('Lỗi duyệt khoản vay: $e');
     }
   }
 }

@@ -7,6 +7,7 @@ import '../services/token_service.dart';
 import '../widgets/stat_card.dart';
 import '../widgets/loan_list_item.dart';
 import 'login_page.dart';
+import 'loan_list_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -31,7 +32,7 @@ class _HomePageState extends State<HomePage> {
     try {
       final stats = await _dashboardService.getDashboardStats();
       final loans = await _dashboardService.getRecentLoans();
-      
+
       if (mounted) {
         setState(() {
           _stats = stats;
@@ -140,7 +141,8 @@ class _HomePageState extends State<HomePage> {
               switch (value) {
                 case 'profile':
                   ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('Chức năng thông tin cá nhân')),
+                    const SnackBar(
+                        content: Text('Chức năng thông tin cá nhân')),
                   );
                   break;
                 case 'settings':
@@ -200,9 +202,9 @@ class _HomePageState extends State<HomePage> {
                         ],
                       ),
                     ),
-                    
+
                     const SizedBox(height: 24),
-                    
+
                     // Stats grid
                     if (_stats != null) ...[
                       const Text(
@@ -247,9 +249,9 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ],
                       ),
-                      
+
                       const SizedBox(height: 16),
-                      
+
                       // Financial stats
                       GridView.count(
                         shrinkWrap: true,
@@ -274,9 +276,9 @@ class _HomePageState extends State<HomePage> {
                         ],
                       ),
                     ],
-                    
+
                     const SizedBox(height: 32),
-                    
+
                     // Recent loans
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -288,19 +290,35 @@ class _HomePageState extends State<HomePage> {
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        TextButton(
-                          onPressed: () {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(content: Text('Xem tất cả khoản vay')),
-                            );
-                          },
-                          child: const Text('Xem tất cả'),
+                        Row(
+                          children: [
+                            TextButton(
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => LoanListPage()),
+                                );
+                              },
+                              child: const Text('Tất cả khoản vay'),
+                            ),
+                            TextButton(
+                              onPressed: () {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  const SnackBar(
+                                      content:
+                                          Text('Xem tất cả khoản vay gần đây')),
+                                );
+                              },
+                              child: const Text('Gần đây'),
+                            ),
+                          ],
                         ),
                       ],
                     ),
-                    
+
                     const SizedBox(height: 16),
-                    
+
                     if (_recentLoans.isEmpty)
                       const Center(
                         child: Text(
@@ -322,7 +340,8 @@ class _HomePageState extends State<HomePage> {
                             onTap: () {
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(
-                                  content: Text('Chi tiết khoản vay ${_recentLoans[index].id}'),
+                                  content: Text(
+                                      'Chi tiết khoản vay ${_recentLoans[index].id}'),
                                 ),
                               );
                             },
@@ -333,7 +352,6 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
-      
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {
           showModalBottomSheet(
@@ -347,10 +365,11 @@ class _HomePageState extends State<HomePage> {
                     leading: const Icon(Icons.add, color: Colors.blue),
                     title: const Text('Tạo khoản vay mới'),
                     onTap: () {
-                       Navigator.pop(context);
+                      Navigator.pop(context);
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => const CreateLoanPage()),
+                        MaterialPageRoute(
+                            builder: (context) => const CreateLoanPage()),
                       );
                     },
                   ),
@@ -361,11 +380,14 @@ class _HomePageState extends State<HomePage> {
                       Navigator.pop(context);
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => const RiskPredictionPage()),
+                        MaterialPageRoute(
+                            builder: (context) => const RiskPredictionPage()),
                       );
                     },
                   ),
-                  SizedBox(height: 35,)
+                  SizedBox(
+                    height: 35,
+                  )
                 ],
               ),
             ),
