@@ -4,7 +4,7 @@ class DashboardService {
   // Mock data - sau này bạn có thể thay bằng API thật
   Future<DashboardStats> getDashboardStats() async {
     await Future.delayed(const Duration(seconds: 1)); // Simulate API call
-    
+
     return DashboardStats(
       totalLoanAmount: 2500000000, // 2.5 tỷ
       totalLoans: 1250,
@@ -18,7 +18,7 @@ class DashboardService {
 
   Future<List<LoanSummary>> getRecentLoans() async {
     await Future.delayed(const Duration(milliseconds: 800));
-    
+
     return [
       LoanSummary(
         id: 'LN001',

@@ -32,7 +32,7 @@ class _LoanListPageState extends State<LoanListPage> {
       id: loan.processInstance.toString(),
       customerName: loan.customerFullName,
       amount: loan.loanAmount.toDouble(),
-      status: loan.appStatus,
+      status: loan.appStage, // Sử dụng appStage thay vì appStatus
       dueDate: DateTime.now().add(Duration(days: 30)),
       phoneNumber: loan.customerPhone,
     );

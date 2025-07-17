@@ -302,16 +302,6 @@ class _HomePageState extends State<HomePage> {
                               },
                               child: const Text('Tất cả khoản vay'),
                             ),
-                            TextButton(
-                              onPressed: () {
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  const SnackBar(
-                                      content:
-                                          Text('Xem tất cả khoản vay gần đây')),
-                                );
-                              },
-                              child: const Text('Gần đây'),
-                            ),
                           ],
                         ),
                       ],
