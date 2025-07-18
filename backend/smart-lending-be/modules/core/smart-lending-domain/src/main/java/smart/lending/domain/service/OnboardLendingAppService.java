@@ -35,4 +35,9 @@ public class OnboardLendingAppService {
     public List<OnboardLendingApp> getAllApps(){
         return onboardLendingAppRepository.findAll();
     }
+
+    public OnboardLendingApp getLoanApp(long loanAppId){
+        var optEntity = onboardLendingAppRepository.findById(loanAppId);
+        return optEntity.orElse(null);
+    }
 }

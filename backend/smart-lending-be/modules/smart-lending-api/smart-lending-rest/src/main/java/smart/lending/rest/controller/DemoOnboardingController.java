@@ -7,6 +7,7 @@ import org.flowable.engine.runtime.ProcessInstance;
 import org.flowable.task.api.Task;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import smart.lending.domain.model.LoanAppRequest;
 import smart.lending.domain.model.OnboardAcquisitionRequest;
 import smart.lending.domain.model.OnboardESignRequest;
 import smart.lending.domain.service.OnboardLendingAppService;
@@ -70,6 +71,16 @@ public class DemoOnboardingController {
         return ResponseEntity.ok(ResponseBuilder.<List<OnboardLendingApp>>builder()
                 .body(body)
 //                .metadata("nextCursor", nextCursor)
+                .build());
+    }
+    @PostMapping("/getApp")
+    public ResponseEntity<ResponseWrapper<OnboardLendingApp>> getLoanApp(
+            @RequestBody RequestWrapper<LoanAppRequest> request) {
+        var requestBody = request.getBody();
+        var responseBody = onboardLendingAppService.getLoanApp(requestBody.getLoanAppId());
+        return ResponseEntity.ok(ResponseBuilder
+                .<OnboardLendingApp>builder()
+                .body(responseBody)
                 .build());
     }
 

@@ -32,7 +32,9 @@ class _LoanListPageState extends State<LoanListPage> {
       id: loan.processInstance.toString(),
       customerName: loan.customerFullName,
       amount: loan.loanAmount.toDouble(),
-      status: loan.appStage, // Sử dụng appStage thay vì appStatus
+      appStatus: loan.appStatus,
+      appStage: loan.appStage,
+      reason: loan.reason,
       dueDate: DateTime.now().add(Duration(days: 30)),
       phoneNumber: loan.customerPhone,
     );
@@ -69,54 +71,37 @@ class _LoanListPageState extends State<LoanListPage> {
                 return LoanListItem(
                   loan: _toLoanSummary(loan),
                   onTap: () async {
-                    final confirm = await showDialog<bool>(
-                      context: context,
-                      builder: (context) => AlertDialog(
-                        title: const Text('Duyệt khoản vay'),
-                        content: Text(
-                            'Bạn có chắc muốn duyệt khoản vay cho khách hàng "${loan.customerFullName}"?'),
-                        actions: [
-                          TextButton(
-                            onPressed: () => Navigator.pop(context, false),
-                            child: const Text('Hủy'),
-                          ),
-                          TextButton(
-                            onPressed: () => Navigator.pop(context, true),
-                            child: const Text('Duyệt'),
-                          ),
-                        ],
-                      ),
-                    );
-                    if (confirm == true) {
-                      try {
-                        final success = await _loanService
-                            .approveLoanApplication(loan.processInstance);
-                        if (success) {
-                          if (mounted) {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(
-                                  content: Text('Duyệt khoản vay thành công!'),
-                                  backgroundColor: Colors.green),
-                            );
-                            _refresh();
-                          }
-                        } else {
-                          if (mounted) {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(
-                                  content: Text('Duyệt khoản vay thất bại!'),
-                                  backgroundColor: Colors.red),
-                            );
-                          }
-                        }
-                      } catch (e) {
+                    // Xem chi tiết hoặc thao tác khác nếu cần
+                  },
+                  onApprove: () async {
+                    try {
+                      final success = await _loanService
+                          .approveLoanApplication(loan.processInstance);
+                      if (success) {
                         if (mounted) {
                           ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                                content: Text('Lỗi: $e'),
+                            const SnackBar(
+                                content: Text('Duyệt khoản vay thành công!'),
+                                backgroundColor: Colors.green),
+                          );
+                          _refresh();
+                        }
+                      } else {
+                        if (mounted) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                                content: Text('Duyệt khoản vay thất bại!'),
                                 backgroundColor: Colors.red),
                           );
                         }
+                      }
+                    } catch (e) {
+                      if (mounted) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                              content: Text('Lỗi: $e'),
+                              backgroundColor: Colors.red),
+                        );
                       }
                     }
                   },
