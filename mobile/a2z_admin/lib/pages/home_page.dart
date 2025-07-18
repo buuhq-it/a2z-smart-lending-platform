@@ -8,6 +8,7 @@ import '../widgets/stat_card.dart';
 import '../widgets/loan_list_item.dart';
 import 'login_page.dart';
 import 'loan_list_page.dart';
+import 'loan_detail_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -327,13 +328,20 @@ class _HomePageState extends State<HomePage> {
                         itemBuilder: (context, index) {
                           return LoanListItem(
                             loan: _recentLoans[index],
-                            onTap: () {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(
-                                  content: Text(
-                                      'Chi tiết khoản vay ${_recentLoans[index].id}'),
+                            onTap: () async {
+                              final loanAppId = int.tryParse(
+                                      _recentLoans[index].id.toString()) ??
+                                  0;
+                              final result = await Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      LoanDetailPage(loanAppId: loanAppId),
                                 ),
                               );
+                              if (result == true) {
+                                _loadDashboardData();
+                              }
                             },
                           );
                         },

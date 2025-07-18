@@ -3,6 +3,7 @@ import '../models/loan_models.dart';
 import '../services/loan_service.dart';
 import '../models/dashboard_models.dart';
 import '../widgets/loan_list_item.dart';
+import 'loan_detail_page.dart';
 
 class LoanListPage extends StatefulWidget {
   const LoanListPage({super.key});
@@ -71,7 +72,17 @@ class _LoanListPageState extends State<LoanListPage> {
                 return LoanListItem(
                   loan: _toLoanSummary(loan),
                   onTap: () async {
-                    // Xem chi tiết hoặc thao tác khác nếu cần
+                    final loanAppId = int.tryParse(loan.id.toString()) ?? 0;
+                    final result = await Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            LoanDetailPage(loanAppId: loanAppId),
+                      ),
+                    );
+                    if (result == true) {
+                      _refresh();
+                    }
                   },
                   onApprove: () async {
                     try {

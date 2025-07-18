@@ -129,4 +129,47 @@ class LoanService {
       throw Exception('Lỗi duyệt khoản vay: $e');
     }
   }
+
+  Future<LoanApplication> getLoanDetail(int loanAppId) async {
+    try {
+      final token = await TokenService.getToken();
+      if (token == null) {
+        throw Exception('Không tìm thấy token xác thực');
+      }
+      final requestId = _generateRequestId();
+      final traceId = _generateTraceId();
+      final requestTime = DateTime.now().toUtc().toIso8601String();
+      final body = {
+        'requestId': requestId,
+        'traceId': traceId,
+        'requestTime': requestTime,
+        'body': {
+          'loanAppId': loanAppId,
+        },
+        'metadata': {
+          'additionalProp1': {},
+          'additionalProp2': {},
+          'additionalProp3': {},
+        },
+      };
+      final response = await http.post(
+        Uri.parse('$baseUrl/process/demo-onboarding/getApp'),
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'Authorization': 'Bearer $token',
+        },
+        body: jsonEncode(body),
+      );
+      if (response.statusCode == 200) {
+        final data = jsonDecode(response.body);
+        final detail = data['body'];
+        return LoanApplication.fromJson(detail);
+      } else {
+        throw Exception('HTTP ${response.statusCode}: ${response.body}');
+      }
+    } catch (e) {
+      throw Exception('Lỗi lấy chi tiết khoản vay: $e');
+    }
+  }
 }
