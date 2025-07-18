@@ -6,16 +6,28 @@ class DashboardService {
   final LoanService _loanService = LoanService();
   // Mock data - sau này bạn có thể thay bằng API thật
   Future<DashboardStats> getDashboardStats() async {
-    await Future.delayed(const Duration(seconds: 1)); // Simulate API call
-
+    final loans = await _loanService.getAllLoanApplications();
+    int totalLoans = loans.length;
+    int activeLoans =
+        loans.where((l) => l.appStage.toLowerCase() == 'acquisition').length;
+    int completedLoans =
+        loans.where((l) => l.appStage.toLowerCase() == 'esign').length;
+    int overdueLoans =
+        loans.where((l) => l.appStage.toLowerCase() == 'disbursement').length;
+    double totalLoanAmount = loans.fold(0, (sum, l) => sum + (l.loanAmount));
+    double totalRevenue =
+        loans.fold(0, (sum, l) => sum + (l.loanAmount * l.loanRate));
+    double pendingAmount = loans
+        .where((l) => l.appStage.toLowerCase() == 'pending')
+        .fold(0, (sum, l) => sum + (l.loanAmount));
     return DashboardStats(
-      totalLoanAmount: 2500000000, // 2.5 tỷ
-      totalLoans: 1250,
-      activeLoans: 850,
-      completedLoans: 320,
-      overdueLoans: 80,
-      totalRevenue: 125000000, // 125 triệu
-      pendingAmount: 450000000, // 450 triệu
+      totalLoanAmount: totalLoanAmount,
+      totalLoans: totalLoans,
+      activeLoans: activeLoans,
+      completedLoans: completedLoans,
+      overdueLoans: overdueLoans,
+      totalRevenue: totalRevenue,
+      pendingAmount: pendingAmount,
     );
   }
 
