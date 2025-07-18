@@ -1,6 +1,9 @@
 import '../models/dashboard_models.dart';
+import '../models/loan_models.dart';
+import 'loan_service.dart';
 
 class DashboardService {
+  final LoanService _loanService = LoanService();
   // Mock data - sau này bạn có thể thay bằng API thật
   Future<DashboardStats> getDashboardStats() async {
     await Future.delayed(const Duration(seconds: 1)); // Simulate API call
@@ -17,49 +20,33 @@ class DashboardService {
   }
 
   Future<List<LoanSummary>> getRecentLoans() async {
-    await Future.delayed(const Duration(milliseconds: 800));
-
-    return [
-      LoanSummary(
-        id: 'LN001',
-        customerName: 'Nguyễn Văn An',
-        amount: 50000000,
-        status: 'active',
-        dueDate: DateTime.now().add(const Duration(days: 15)),
-        phoneNumber: '0901234567',
-      ),
-      LoanSummary(
-        id: 'LN002',
-        customerName: 'Trần Thị Bình',
-        amount: 30000000,
-        status: 'overdue',
-        dueDate: DateTime.now().subtract(const Duration(days: 5)),
-        phoneNumber: '0912345678',
-      ),
-      LoanSummary(
-        id: 'LN003',
-        customerName: 'Lê Văn Cường',
-        amount: 75000000,
-        status: 'pending',
-        dueDate: DateTime.now().add(const Duration(days: 30)),
-        phoneNumber: '0923456789',
-      ),
-      LoanSummary(
-        id: 'LN004',
-        customerName: 'Phạm Thị Dung',
-        amount: 25000000,
-        status: 'completed',
-        dueDate: DateTime.now().subtract(const Duration(days: 10)),
-        phoneNumber: '0934567890',
-      ),
-      LoanSummary(
-        id: 'LN005',
-        customerName: 'Hoàng Văn Em',
-        amount: 60000000,
-        status: 'active',
-        dueDate: DateTime.now().add(const Duration(days: 20)),
-        phoneNumber: '0945678901',
-      ),
-    ];
+    final loans = await _loanService.getAllLoanApplications();
+    // Lọc các khoản vay theo các trạng thái chính
+    final filtered = loans.where((l) {
+      final status = l.appStage.toLowerCase();
+      return status == 'acquisition' ||
+          status == 'approval' ||
+          status == 'disbursement' ||
+          status == 'repayment' ||
+          status == 'esign' ||
+          status == 'completed';
+    }).toList();
+    // Sắp xếp theo id giảm dần (mới nhất trước)
+    filtered.sort((a, b) => b.id.compareTo(a.id));
+    // Lấy 5 khoản vay gần nhất
+    return filtered
+        .take(5)
+        .map((loan) => LoanSummary(
+              id: loan.id.toString(),
+              customerName: loan.customerFullName,
+              amount: loan.loanAmount.toDouble(),
+              appStatus: loan.appStatus,
+              appStage: loan.appStage,
+              reason: loan.reason,
+              dueDate: DateTime.now()
+                  .add(const Duration(days: 30)), // Không có trường dueDate
+              phoneNumber: loan.customerPhone,
+            ))
+        .toList();
   }
 }

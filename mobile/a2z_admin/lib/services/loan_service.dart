@@ -120,8 +120,8 @@ class LoanService {
         body: jsonEncode(body),
       );
       if (response.statusCode == 200) {
-        final data = jsonDecode(response.body);
-        return data['success'] == true;
+        // final data = jsonDecode(response.body);
+        return true;
       } else {
         throw Exception('HTTP ${response.statusCode}: ${response.body}');
       }

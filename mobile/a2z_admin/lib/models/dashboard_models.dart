@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 class DashboardStats {
   final double totalLoanAmount;
   final int totalLoans;
@@ -23,7 +24,9 @@ class LoanSummary {
   final String id;
   final String customerName;
   final double amount;
-  final String status;
+  final String appStatus;
+  final String appStage;
+  final String? reason;
   final DateTime dueDate;
   final String phoneNumber;
 
@@ -31,19 +34,44 @@ class LoanSummary {
     required this.id,
     required this.customerName,
     required this.amount,
-    required this.status,
+    required this.appStatus,
+    required this.appStage,
+    this.reason,
     required this.dueDate,
     required this.phoneNumber,
   });
 }
 
-enum LoanStatus {
+enum StatusApp {
   pending('Chờ duyệt', Colors.orange),
-  active('Đang vay', Colors.blue),
-  completed('Hoàn thành', Colors.green),
-  overdue('Quá hạn', Colors.red);
+  approved('Đã duyệt', Colors.green),
+  rejected('Từ chối', Colors.red);
 
-  const LoanStatus(this.label, this.color);
+  const StatusApp(this.label, this.color);
   final String label;
   final Color color;
+}
+
+enum StatusStage {
+  acquisition('Tiếp nhận hồ sơ', Colors.orange),
+  esign('Ký hợp đồng', Colors.blue),
+  completed('Hoàn thành', Colors.green),
+  other('Khác', Colors.grey);
+
+  const StatusStage(this.label, this.color);
+  final String label;
+  final Color color;
+
+  static StatusStage fromString(String? value) {
+    switch (value?.toLowerCase()) {
+      case 'acquisition':
+        return StatusStage.acquisition;
+      case 'esign':
+        return StatusStage.esign;
+      case 'completed':
+        return StatusStage.completed;
+      default:
+        return StatusStage.other;
+    }
+  }
 }
