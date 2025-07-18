@@ -2656,3 +2656,622 @@ Identify and stop the process that's listening on port 6201 or configure this ap
 2025-07-17 18:05:41 INFO  [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'platform'
 2025-07-17 18:05:41 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
 2025-07-17 18:05:41 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-07-18 02:39:49 INFO  [restartedMain] s.l.rest.app.SmartLendingRestApp - Starting SmartLendingRestApp using Java 21.0.7 with PID 16309 (/home/boo/learning-area/a2z-smart-lending-platform/backend/smart-lending-be/modules/smart-lending-api/smart-lending-rest-app/target/classes started by boo in /home/boo/learning-area/a2z-smart-lending-platform)
+2025-07-18 02:39:49 INFO  [restartedMain] s.l.rest.app.SmartLendingRestApp - The following 1 profile is active: "uat"
+2025-07-18 02:39:49 INFO  [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-07-18 02:39:49 INFO  [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-07-18 02:39:50 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-07-18 02:39:50 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 72 ms. Found 3 JPA repository interfaces.
+2025-07-18 02:39:52 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 6201 (http)
+2025-07-18 02:39:52 INFO  [restartedMain] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-07-18 02:39:52 INFO  [restartedMain] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.40]
+2025-07-18 02:39:52 INFO  [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-07-18 02:39:52 INFO  [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3339 ms
+2025-07-18 02:39:52 INFO  [restartedMain] s.l.domain.config.PlatformDbConfig - =========== Platform DataSource: HikariDataSource (null) ==========
+2025-07-18 02:39:52 INFO  [restartedMain] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: platform]
+2025-07-18 02:39:53 INFO  [restartedMain] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-07-18 02:39:53 INFO  [restartedMain] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-07-18 02:39:53 INFO  [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-07-18 02:39:53 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-07-18 02:39:53 INFO  [restartedMain] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@4b0fdc5e
+2025-07-18 02:39:53 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-07-18 02:39:53 INFO  [restartedMain] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 15.10
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-07-18 02:39:55 INFO  [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-07-18 02:39:55 WARN  [restartedMain] o.h.e.jdbc.spi.SqlExceptionHelper - SQL Warning Code: 0, SQLState: 00000
+2025-07-18 02:39:55 WARN  [restartedMain] o.h.e.jdbc.spi.SqlExceptionHelper - constraint "ukofx66keruapi6vyqpv6f2or37" of relation "roles" does not exist, skipping
+2025-07-18 02:39:55 WARN  [restartedMain] o.h.e.jdbc.spi.SqlExceptionHelper - SQL Warning Code: 0, SQLState: 00000
+2025-07-18 02:39:55 WARN  [restartedMain] o.h.e.jdbc.spi.SqlExceptionHelper - constraint "ukr43af9ap4edm43mmtq01oddj6" of relation "users" does not exist, skipping
+2025-07-18 02:39:55 INFO  [restartedMain] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'platform'
+2025-07-18 02:39:56 INFO  [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-07-18 02:39:57 INFO  [restartedMain] s.l.domain.config.ProcessDbConfig - =========== Process DataSource: HikariDataSource (null) ==========
+2025-07-18 02:39:58 INFO  [restartedMain] o.f.s.SpringProcessEngineConfiguration - Found 2 Engine Configurators in total:
+2025-07-18 02:39:58 INFO  [restartedMain] o.f.s.SpringProcessEngineConfiguration - class org.flowable.eventregistry.spring.configurator.SpringEventRegistryConfigurator (priority:100000)
+2025-07-18 02:39:58 INFO  [restartedMain] o.f.s.SpringProcessEngineConfiguration - class org.flowable.idm.engine.configurator.IdmEngineConfigurator (priority:150000)
+2025-07-18 02:39:58 INFO  [restartedMain] o.f.s.SpringProcessEngineConfiguration - Executing beforeInit() of class org.flowable.eventregistry.spring.configurator.SpringEventRegistryConfigurator (priority:100000)
+2025-07-18 02:39:58 INFO  [restartedMain] o.f.s.SpringProcessEngineConfiguration - Executing beforeInit() of class org.flowable.idm.engine.configurator.IdmEngineConfigurator (priority:150000)
+2025-07-18 02:39:58 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting...
+2025-07-18 02:39:58 INFO  [restartedMain] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Added connection org.postgresql.jdbc.PgConnection@2b740631
+2025-07-18 02:39:58 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed.
+2025-07-18 02:40:00 INFO  [restartedMain] o.f.c.e.i.a.DefaultAsyncTaskExecutor - Creating thread pool queue of size 100
+2025-07-18 02:40:00 INFO  [restartedMain] o.f.c.e.i.a.DefaultAsyncTaskExecutor - Creating thread factory with naming pattern flowable-async-task-invoker-thread-%d
+2025-07-18 02:40:00 INFO  [restartedMain] o.f.c.e.i.a.DefaultAsyncTaskExecutor - Creating executor service with corePoolSize 8, maxPoolSize 8 and keepAliveTime 5000
+2025-07-18 02:40:00 INFO  [restartedMain] o.f.c.e.i.a.DefaultAsyncTaskExecutor - Using rejectedExecutionHandler java.util.concurrent.ThreadPoolExecutor$CallerRunsPolicy@17d036c5
+2025-07-18 02:40:00 INFO  [restartedMain] o.f.c.e.i.a.DefaultAsyncTaskExecutor - Creating thread pool queue of size 2048
+2025-07-18 02:40:00 INFO  [restartedMain] o.f.c.e.i.a.DefaultAsyncTaskExecutor - Creating thread factory with naming pattern flowable-async-job-executor-thread-%d
+2025-07-18 02:40:00 INFO  [restartedMain] o.f.c.e.i.a.DefaultAsyncTaskExecutor - Creating executor service with corePoolSize 8, maxPoolSize 8 and keepAliveTime 5000
+2025-07-18 02:40:00 INFO  [restartedMain] o.f.s.SpringProcessEngineConfiguration - Executing configure() of class org.flowable.eventregistry.spring.configurator.SpringEventRegistryConfigurator (priority:100000)
+2025-07-18 02:40:01 INFO  [restartedMain] liquibase.database - Set default schema name to public
+2025-07-18 02:40:02 INFO  [restartedMain] liquibase.changelog - Reading from public.flw_ev_databasechangelog
+2025-07-18 02:40:02 INFO  [restartedMain] liquibase.command - Command execution complete
+2025-07-18 02:40:02 INFO  [restartedMain] o.f.e.impl.EventRegistryEngineImpl - EventRegistryEngine default created
+2025-07-18 02:40:02 INFO  [restartedMain] o.f.s.SpringProcessEngineConfiguration - Executing configure() of class org.flowable.idm.engine.configurator.IdmEngineConfigurator (priority:150000)
+2025-07-18 02:40:02 INFO  [restartedMain] o.f.idm.engine.impl.IdmEngineImpl - IdmEngine default created
+2025-07-18 02:40:02 INFO  [restartedMain] o.f.engine.impl.ProcessEngineImpl - ProcessEngine default created
+2025-07-18 02:40:02 INFO  [restartedMain] o.f.e.impl.cmd.ValidateV5EntitiesCmd - Total of v5 deployments found: 0
+2025-07-18 02:40:04 WARN  [restartedMain] o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 72f13bf2-6fa6-4e96-b713-a3c86ec40abe
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-07-18 02:40:04 INFO  [restartedMain] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2025-07-18 02:40:05 DEBUG [restartedMain] o.s.w.s.m.m.a.RequestMappingHandlerMapping - 13 mappings in 'requestMappingHandlerMapping'
+2025-07-18 02:40:05 DEBUG [restartedMain] o.s.w.s.h.SimpleUrlHandlerMapping - Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2025-07-18 02:40:06 INFO  [restartedMain] o.s.v.b.OptionalValidatorFactoryBean - Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-07-18 02:40:06 DEBUG [restartedMain] o.s.w.s.m.m.a.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2025-07-18 02:40:06 DEBUG [restartedMain] o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2025-07-18 02:40:06 INFO  [restartedMain] o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-07-18 02:40:06 INFO  [restartedMain] o.f.j.s.i.a.AbstractAsyncExecutor - Starting up the async job executor [org.flowable.job.service.impl.asyncexecutor.DefaultAsyncJobExecutor] for engine bpmn
+2025-07-18 02:40:06 INFO  [Thread-9] o.f.j.s.i.a.ResetExpiredJobsRunnable - starting to reset expired jobs for engine bpmn
+2025-07-18 02:40:06 INFO  [Thread-8] o.f.j.s.i.a.AcquireTimerJobsRunnable - starting to acquire async jobs due for engine bpmn
+2025-07-18 02:40:06 INFO  [Thread-7] o.f.j.s.i.a.AcquireAsyncJobsDueRunnable - starting to acquire async jobs due for engine bpmn
+2025-07-18 02:40:06 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 6201 (http) with context path '/'
+2025-07-18 02:40:06 INFO  [restartedMain] s.l.rest.app.SmartLendingRestApp - Started SmartLendingRestApp in 19.864 seconds (process running for 23.716)
+2025-07-18 02:41:02 INFO  [http-nio-6201-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-07-18 02:41:02 INFO  [http-nio-6201-exec-1] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-07-18 02:41:02 DEBUG [http-nio-6201-exec-1] o.s.web.servlet.DispatcherServlet - Detected StandardServletMultipartResolver
+2025-07-18 02:41:02 DEBUG [http-nio-6201-exec-1] o.s.web.servlet.DispatcherServlet - Detected AcceptHeaderLocaleResolver
+2025-07-18 02:41:02 DEBUG [http-nio-6201-exec-1] o.s.web.servlet.DispatcherServlet - Detected FixedThemeResolver
+2025-07-18 02:41:02 DEBUG [http-nio-6201-exec-1] o.s.web.servlet.DispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@1ce3fedb
+2025-07-18 02:41:02 DEBUG [http-nio-6201-exec-1] o.s.web.servlet.DispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@a51b800
+2025-07-18 02:41:02 DEBUG [http-nio-6201-exec-1] o.s.web.servlet.DispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2025-07-18 02:41:02 INFO  [http-nio-6201-exec-1] o.s.web.servlet.DispatcherServlet - Completed initialization in 3 ms
+2025-07-18 02:41:02 DEBUG [http-nio-6201-exec-1] o.s.web.servlet.DispatcherServlet - POST "/auth/login", parameters={}
+2025-07-18 02:41:02 DEBUG [http-nio-6201-exec-1] o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to smart.lending.rest.controller.AuthController#login(RequestWrapper)
+2025-07-18 02:41:02 DEBUG [http-nio-6201-exec-1] o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Read "application/json;charset=UTF-8" to [smart.lending.rest.payload.RequestWrapper@60ffafc5]
+2025-07-18 02:41:03 DEBUG [http-nio-6201-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2025-07-18 02:41:03 DEBUG [http-nio-6201-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [smart.lending.rest.payload.ResponseWrapper@644e73bf]
+2025-07-18 02:41:03 DEBUG [http-nio-6201-exec-1] o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-07-18 02:41:34 INFO  [File Watcher] o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 3 class path changes (0 additions, 1 deletion, 2 modifications)
+2025-07-18 02:41:34 INFO  [Thread-5] o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-07-18 02:41:34 INFO  [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-07-18 02:41:34 INFO  [Thread-5] o.f.j.s.i.a.AbstractAsyncExecutor - Shutting down the async job executor [org.flowable.job.service.impl.asyncexecutor.DefaultAsyncJobExecutor] for engine bpmn
+2025-07-18 02:41:34 INFO  [flowable-bpmn-reset-expired-jobs] o.f.j.s.i.a.ResetExpiredJobsRunnable - stopped resetting expired jobs for engine bpmn
+2025-07-18 02:41:34 INFO  [flowable-bpmn-acquire-async-jobs] o.f.j.s.i.a.AcquireAsyncJobsDueRunnable - stopped async job due acquisition for engine bpmn
+2025-07-18 02:41:34 INFO  [flowable-bpmn-acquire-timer-jobs] o.f.j.s.i.a.AcquireTimerJobsRunnable - stopped async job due acquisition for engine bpmn
+2025-07-18 02:41:34 INFO  [Thread-5] com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated...
+2025-07-18 02:41:34 INFO  [Thread-5] com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed.
+2025-07-18 02:41:34 INFO  [Thread-5] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'platform'
+2025-07-18 02:41:34 INFO  [Thread-5] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-07-18 02:41:34 INFO  [Thread-5] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-07-18 02:41:35 INFO  [restartedMain] s.l.rest.app.SmartLendingRestApp - Starting SmartLendingRestApp using Java 21.0.7 with PID 16309 (/home/boo/learning-area/a2z-smart-lending-platform/backend/smart-lending-be/modules/smart-lending-api/smart-lending-rest-app/target/classes started by boo in /home/boo/learning-area/a2z-smart-lending-platform)
+2025-07-18 02:41:35 INFO  [restartedMain] s.l.rest.app.SmartLendingRestApp - The following 1 profile is active: "uat"
+2025-07-18 02:41:36 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-07-18 02:41:36 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 61 ms. Found 3 JPA repository interfaces.
+2025-07-18 02:41:39 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 6201 (http)
+2025-07-18 02:41:39 INFO  [restartedMain] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-07-18 02:41:39 INFO  [restartedMain] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.40]
+2025-07-18 02:41:39 INFO  [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-07-18 02:41:39 INFO  [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3677 ms
+2025-07-18 02:41:39 INFO  [restartedMain] s.l.domain.config.PlatformDbConfig - =========== Platform DataSource: HikariDataSource (null) ==========
+2025-07-18 02:41:39 INFO  [restartedMain] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: platform]
+2025-07-18 02:41:39 INFO  [restartedMain] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-07-18 02:41:39 INFO  [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-07-18 02:41:39 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Starting...
+2025-07-18 02:41:40 INFO  [restartedMain] com.zaxxer.hikari.pool.HikariPool - HikariPool-3 - Added connection org.postgresql.jdbc.PgConnection@2ac412b3
+2025-07-18 02:41:40 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Start completed.
+2025-07-18 02:41:40 INFO  [restartedMain] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-3)']
+	Database driver: undefined/unknown
+	Database version: 15.10
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-07-18 02:41:40 INFO  [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-07-18 02:41:41 INFO  [restartedMain] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'platform'
+2025-07-18 02:41:42 INFO  [restartedMain] s.l.domain.config.ProcessDbConfig - =========== Process DataSource: HikariDataSource (null) ==========
+2025-07-18 02:41:43 INFO  [restartedMain] o.f.s.SpringProcessEngineConfiguration - Found 2 Engine Configurators in total:
+2025-07-18 02:41:43 INFO  [restartedMain] o.f.s.SpringProcessEngineConfiguration - class org.flowable.eventregistry.spring.configurator.SpringEventRegistryConfigurator (priority:100000)
+2025-07-18 02:41:43 INFO  [restartedMain] o.f.s.SpringProcessEngineConfiguration - class org.flowable.idm.engine.configurator.IdmEngineConfigurator (priority:150000)
+2025-07-18 02:41:43 INFO  [restartedMain] o.f.s.SpringProcessEngineConfiguration - Executing beforeInit() of class org.flowable.eventregistry.spring.configurator.SpringEventRegistryConfigurator (priority:100000)
+2025-07-18 02:41:43 INFO  [restartedMain] o.f.s.SpringProcessEngineConfiguration - Executing beforeInit() of class org.flowable.idm.engine.configurator.IdmEngineConfigurator (priority:150000)
+2025-07-18 02:41:43 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Starting...
+2025-07-18 02:41:43 INFO  [restartedMain] com.zaxxer.hikari.pool.HikariPool - HikariPool-4 - Added connection org.postgresql.jdbc.PgConnection@48b9dcef
+2025-07-18 02:41:43 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Start completed.
+2025-07-18 02:41:46 INFO  [restartedMain] o.f.c.e.i.a.DefaultAsyncTaskExecutor - Creating thread pool queue of size 100
+2025-07-18 02:41:46 INFO  [restartedMain] o.f.c.e.i.a.DefaultAsyncTaskExecutor - Creating thread factory with naming pattern flowable-async-task-invoker-thread-%d
+2025-07-18 02:41:46 INFO  [restartedMain] o.f.c.e.i.a.DefaultAsyncTaskExecutor - Creating executor service with corePoolSize 8, maxPoolSize 8 and keepAliveTime 5000
+2025-07-18 02:41:46 INFO  [restartedMain] o.f.c.e.i.a.DefaultAsyncTaskExecutor - Using rejectedExecutionHandler java.util.concurrent.ThreadPoolExecutor$CallerRunsPolicy@6ec04afe
+2025-07-18 02:41:46 INFO  [restartedMain] o.f.c.e.i.a.DefaultAsyncTaskExecutor - Creating thread pool queue of size 2048
+2025-07-18 02:41:46 INFO  [restartedMain] o.f.c.e.i.a.DefaultAsyncTaskExecutor - Creating thread factory with naming pattern flowable-async-job-executor-thread-%d
+2025-07-18 02:41:46 INFO  [restartedMain] o.f.c.e.i.a.DefaultAsyncTaskExecutor - Creating executor service with corePoolSize 8, maxPoolSize 8 and keepAliveTime 5000
+2025-07-18 02:41:46 INFO  [restartedMain] o.f.s.SpringProcessEngineConfiguration - Executing configure() of class org.flowable.eventregistry.spring.configurator.SpringEventRegistryConfigurator (priority:100000)
+2025-07-18 02:41:46 INFO  [restartedMain] liquibase.database - Set default schema name to public
+2025-07-18 02:41:47 INFO  [restartedMain] liquibase.changelog - Reading from public.flw_ev_databasechangelog
+2025-07-18 02:41:47 INFO  [restartedMain] liquibase.command - Command execution complete
+2025-07-18 02:41:47 INFO  [restartedMain] o.f.e.impl.EventRegistryEngineImpl - EventRegistryEngine default created
+2025-07-18 02:41:47 INFO  [restartedMain] o.f.s.SpringProcessEngineConfiguration - Executing configure() of class org.flowable.idm.engine.configurator.IdmEngineConfigurator (priority:150000)
+2025-07-18 02:41:47 INFO  [restartedMain] o.f.idm.engine.impl.IdmEngineImpl - IdmEngine default created
+2025-07-18 02:41:47 INFO  [restartedMain] o.f.engine.impl.ProcessEngineImpl - ProcessEngine default created
+2025-07-18 02:41:47 INFO  [restartedMain] o.f.e.impl.cmd.ValidateV5EntitiesCmd - Total of v5 deployments found: 0
+2025-07-18 02:41:48 WARN  [restartedMain] o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 2e913c96-9a4b-4e8e-92a7-75c794f0a558
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-07-18 02:41:48 INFO  [restartedMain] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2025-07-18 02:41:48 DEBUG [restartedMain] o.s.w.s.m.m.a.RequestMappingHandlerMapping - 13 mappings in 'requestMappingHandlerMapping'
+2025-07-18 02:41:48 DEBUG [restartedMain] o.s.w.s.h.SimpleUrlHandlerMapping - Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2025-07-18 02:41:48 INFO  [restartedMain] o.s.v.b.OptionalValidatorFactoryBean - Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-07-18 02:41:49 DEBUG [restartedMain] o.s.w.s.m.m.a.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2025-07-18 02:41:49 DEBUG [restartedMain] o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2025-07-18 02:41:49 INFO  [restartedMain] o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-07-18 02:41:49 INFO  [restartedMain] o.f.j.s.i.a.AbstractAsyncExecutor - Starting up the async job executor [org.flowable.job.service.impl.asyncexecutor.DefaultAsyncJobExecutor] for engine bpmn
+2025-07-18 02:41:49 INFO  [Thread-14] o.f.j.s.i.a.AcquireAsyncJobsDueRunnable - starting to acquire async jobs due for engine bpmn
+2025-07-18 02:41:49 INFO  [Thread-15] o.f.j.s.i.a.AcquireTimerJobsRunnable - starting to acquire async jobs due for engine bpmn
+2025-07-18 02:41:49 INFO  [Thread-16] o.f.j.s.i.a.ResetExpiredJobsRunnable - starting to reset expired jobs for engine bpmn
+2025-07-18 02:41:49 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 6201 (http) with context path '/'
+2025-07-18 02:41:49 INFO  [restartedMain] s.l.rest.app.SmartLendingRestApp - Started SmartLendingRestApp in 14.02 seconds (process running for 126.252)
+2025-07-18 02:41:49 INFO  [restartedMain] o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2025-07-18 02:41:50 INFO  [File Watcher] o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (1 addition, 0 deletions, 0 modifications)
+2025-07-18 02:41:50 INFO  [Thread-10] o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-07-18 02:41:50 INFO  [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-07-18 02:41:50 INFO  [Thread-10] o.f.j.s.i.a.AbstractAsyncExecutor - Shutting down the async job executor [org.flowable.job.service.impl.asyncexecutor.DefaultAsyncJobExecutor] for engine bpmn
+2025-07-18 02:41:50 INFO  [flowable-bpmn-acquire-async-jobs] o.f.j.s.i.a.AcquireAsyncJobsDueRunnable - stopped async job due acquisition for engine bpmn
+2025-07-18 02:41:50 INFO  [flowable-bpmn-reset-expired-jobs] o.f.j.s.i.a.ResetExpiredJobsRunnable - stopped resetting expired jobs for engine bpmn
+2025-07-18 02:41:50 INFO  [flowable-bpmn-acquire-timer-jobs] o.f.j.s.i.a.AcquireTimerJobsRunnable - stopped async job due acquisition for engine bpmn
+2025-07-18 02:41:50 INFO  [Thread-10] com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Shutdown initiated...
+2025-07-18 02:41:50 INFO  [Thread-10] com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Shutdown completed.
+2025-07-18 02:41:50 INFO  [Thread-10] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'platform'
+2025-07-18 02:41:50 INFO  [Thread-10] com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown initiated...
+2025-07-18 02:41:50 INFO  [Thread-10] com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown completed.
+2025-07-18 02:41:50 INFO  [restartedMain] s.l.rest.app.SmartLendingRestApp - Starting SmartLendingRestApp using Java 21.0.7 with PID 16309 (/home/boo/learning-area/a2z-smart-lending-platform/backend/smart-lending-be/modules/smart-lending-api/smart-lending-rest-app/target/classes started by boo in /home/boo/learning-area/a2z-smart-lending-platform)
+2025-07-18 02:41:50 INFO  [restartedMain] s.l.rest.app.SmartLendingRestApp - The following 1 profile is active: "uat"
+2025-07-18 02:41:51 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-07-18 02:41:51 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 8 ms. Found 3 JPA repository interfaces.
+2025-07-18 02:41:51 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 6201 (http)
+2025-07-18 02:41:51 INFO  [restartedMain] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-07-18 02:41:51 INFO  [restartedMain] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.40]
+2025-07-18 02:41:51 INFO  [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-07-18 02:41:51 INFO  [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 467 ms
+2025-07-18 02:41:51 INFO  [restartedMain] s.l.domain.config.PlatformDbConfig - =========== Platform DataSource: HikariDataSource (null) ==========
+2025-07-18 02:41:51 INFO  [restartedMain] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: platform]
+2025-07-18 02:41:51 INFO  [restartedMain] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-07-18 02:41:51 INFO  [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-07-18 02:41:51 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-5 - Starting...
+2025-07-18 02:41:51 INFO  [restartedMain] com.zaxxer.hikari.pool.HikariPool - HikariPool-5 - Added connection org.postgresql.jdbc.PgConnection@549c2fff
+2025-07-18 02:41:51 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-5 - Start completed.
+2025-07-18 02:41:51 INFO  [restartedMain] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-5)']
+	Database driver: undefined/unknown
+	Database version: 15.10
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-07-18 02:41:51 INFO  [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-07-18 02:41:51 INFO  [restartedMain] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'platform'
+2025-07-18 02:41:52 INFO  [restartedMain] s.l.domain.config.ProcessDbConfig - =========== Process DataSource: HikariDataSource (null) ==========
+2025-07-18 02:41:52 INFO  [restartedMain] o.f.s.SpringProcessEngineConfiguration - Found 2 Engine Configurators in total:
+2025-07-18 02:41:52 INFO  [restartedMain] o.f.s.SpringProcessEngineConfiguration - class org.flowable.eventregistry.spring.configurator.SpringEventRegistryConfigurator (priority:100000)
+2025-07-18 02:41:52 INFO  [restartedMain] o.f.s.SpringProcessEngineConfiguration - class org.flowable.idm.engine.configurator.IdmEngineConfigurator (priority:150000)
+2025-07-18 02:41:52 INFO  [restartedMain] o.f.s.SpringProcessEngineConfiguration - Executing beforeInit() of class org.flowable.eventregistry.spring.configurator.SpringEventRegistryConfigurator (priority:100000)
+2025-07-18 02:41:52 INFO  [restartedMain] o.f.s.SpringProcessEngineConfiguration - Executing beforeInit() of class org.flowable.idm.engine.configurator.IdmEngineConfigurator (priority:150000)
+2025-07-18 02:41:52 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-6 - Starting...
+2025-07-18 02:41:52 INFO  [restartedMain] com.zaxxer.hikari.pool.HikariPool - HikariPool-6 - Added connection org.postgresql.jdbc.PgConnection@5457458f
+2025-07-18 02:41:52 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-6 - Start completed.
+2025-07-18 02:41:53 INFO  [restartedMain] o.f.c.e.i.a.DefaultAsyncTaskExecutor - Creating thread pool queue of size 100
+2025-07-18 02:41:53 INFO  [restartedMain] o.f.c.e.i.a.DefaultAsyncTaskExecutor - Creating thread factory with naming pattern flowable-async-task-invoker-thread-%d
+2025-07-18 02:41:53 INFO  [restartedMain] o.f.c.e.i.a.DefaultAsyncTaskExecutor - Creating executor service with corePoolSize 8, maxPoolSize 8 and keepAliveTime 5000
+2025-07-18 02:41:53 INFO  [restartedMain] o.f.c.e.i.a.DefaultAsyncTaskExecutor - Using rejectedExecutionHandler java.util.concurrent.ThreadPoolExecutor$CallerRunsPolicy@5fc83e5d
+2025-07-18 02:41:53 INFO  [restartedMain] o.f.c.e.i.a.DefaultAsyncTaskExecutor - Creating thread pool queue of size 2048
+2025-07-18 02:41:53 INFO  [restartedMain] o.f.c.e.i.a.DefaultAsyncTaskExecutor - Creating thread factory with naming pattern flowable-async-job-executor-thread-%d
+2025-07-18 02:41:53 INFO  [restartedMain] o.f.c.e.i.a.DefaultAsyncTaskExecutor - Creating executor service with corePoolSize 8, maxPoolSize 8 and keepAliveTime 5000
+2025-07-18 02:41:53 INFO  [restartedMain] o.f.s.SpringProcessEngineConfiguration - Executing configure() of class org.flowable.eventregistry.spring.configurator.SpringEventRegistryConfigurator (priority:100000)
+2025-07-18 02:41:53 INFO  [restartedMain] liquibase.database - Set default schema name to public
+2025-07-18 02:41:53 INFO  [restartedMain] liquibase.changelog - Reading from public.flw_ev_databasechangelog
+2025-07-18 02:41:53 INFO  [restartedMain] liquibase.command - Command execution complete
+2025-07-18 02:41:53 INFO  [restartedMain] o.f.e.impl.EventRegistryEngineImpl - EventRegistryEngine default created
+2025-07-18 02:41:53 INFO  [restartedMain] o.f.s.SpringProcessEngineConfiguration - Executing configure() of class org.flowable.idm.engine.configurator.IdmEngineConfigurator (priority:150000)
+2025-07-18 02:41:53 INFO  [restartedMain] o.f.idm.engine.impl.IdmEngineImpl - IdmEngine default created
+2025-07-18 02:41:53 INFO  [restartedMain] o.f.engine.impl.ProcessEngineImpl - ProcessEngine default created
+2025-07-18 02:41:53 INFO  [restartedMain] o.f.e.impl.cmd.ValidateV5EntitiesCmd - Total of v5 deployments found: 0
+2025-07-18 02:41:53 WARN  [restartedMain] o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: d4ed637c-c55b-4844-bfef-075f0f187a24
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-07-18 02:41:53 INFO  [restartedMain] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2025-07-18 02:41:53 DEBUG [restartedMain] o.s.w.s.m.m.a.RequestMappingHandlerMapping - 13 mappings in 'requestMappingHandlerMapping'
+2025-07-18 02:41:54 DEBUG [restartedMain] o.s.w.s.h.SimpleUrlHandlerMapping - Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2025-07-18 02:41:54 INFO  [restartedMain] o.s.v.b.OptionalValidatorFactoryBean - Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-07-18 02:41:54 DEBUG [restartedMain] o.s.w.s.m.m.a.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2025-07-18 02:41:54 DEBUG [restartedMain] o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2025-07-18 02:41:54 INFO  [restartedMain] o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-07-18 02:41:54 INFO  [restartedMain] o.f.j.s.i.a.AbstractAsyncExecutor - Starting up the async job executor [org.flowable.job.service.impl.asyncexecutor.DefaultAsyncJobExecutor] for engine bpmn
+2025-07-18 02:41:54 INFO  [Thread-21] o.f.j.s.i.a.AcquireAsyncJobsDueRunnable - starting to acquire async jobs due for engine bpmn
+2025-07-18 02:41:54 INFO  [Thread-22] o.f.j.s.i.a.AcquireTimerJobsRunnable - starting to acquire async jobs due for engine bpmn
+2025-07-18 02:41:54 INFO  [Thread-23] o.f.j.s.i.a.ResetExpiredJobsRunnable - starting to reset expired jobs for engine bpmn
+2025-07-18 02:41:54 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 6201 (http) with context path '/'
+2025-07-18 02:41:54 INFO  [restartedMain] s.l.rest.app.SmartLendingRestApp - Started SmartLendingRestApp in 3.656 seconds (process running for 131.395)
+2025-07-18 02:41:54 INFO  [restartedMain] o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2025-07-18 02:47:01 INFO  [http-nio-6201-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-07-18 02:47:01 INFO  [http-nio-6201-exec-2] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-07-18 02:47:01 DEBUG [http-nio-6201-exec-2] o.s.web.servlet.DispatcherServlet - Detected StandardServletMultipartResolver
+2025-07-18 02:47:01 DEBUG [http-nio-6201-exec-2] o.s.web.servlet.DispatcherServlet - Detected AcceptHeaderLocaleResolver
+2025-07-18 02:47:01 DEBUG [http-nio-6201-exec-2] o.s.web.servlet.DispatcherServlet - Detected FixedThemeResolver
+2025-07-18 02:47:01 DEBUG [http-nio-6201-exec-2] o.s.web.servlet.DispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@208ab59b
+2025-07-18 02:47:01 DEBUG [http-nio-6201-exec-2] o.s.web.servlet.DispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@17bf4154
+2025-07-18 02:47:01 DEBUG [http-nio-6201-exec-2] o.s.web.servlet.DispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2025-07-18 02:47:01 INFO  [http-nio-6201-exec-2] o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-07-18 02:47:48 DEBUG [http-nio-6201-exec-3] o.s.web.servlet.DispatcherServlet - POST "/auth/login", parameters={}
+2025-07-18 02:47:48 DEBUG [http-nio-6201-exec-3] o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to smart.lending.rest.controller.AuthController#login(RequestWrapper)
+2025-07-18 02:47:48 DEBUG [http-nio-6201-exec-3] o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Read "application/octet-stream" to []
+2025-07-18 02:47:48 WARN  [http-nio-6201-exec-3] o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public org.springframework.http.ResponseEntity<?> smart.lending.rest.controller.AuthController.login(smart.lending.rest.payload.RequestWrapper<smart.lending.domain.model.LoginRequest>)]
+2025-07-18 02:47:48 DEBUG [http-nio-6201-exec-3] o.s.web.servlet.DispatcherServlet - Completed 400 BAD_REQUEST
+2025-07-18 02:48:56 DEBUG [http-nio-6201-exec-6] o.s.web.servlet.DispatcherServlet - POST "/auth/login", parameters={}
+2025-07-18 02:48:56 DEBUG [http-nio-6201-exec-6] o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to smart.lending.rest.controller.AuthController#login(RequestWrapper)
+2025-07-18 02:48:56 DEBUG [http-nio-6201-exec-6] o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Read "application/json;charset=UTF-8" to [smart.lending.rest.payload.RequestWrapper@5670e49]
+2025-07-18 02:48:57 DEBUG [http-nio-6201-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2025-07-18 02:48:57 DEBUG [http-nio-6201-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [smart.lending.rest.payload.ResponseWrapper@4d367917]
+2025-07-18 02:48:57 DEBUG [http-nio-6201-exec-6] o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-07-18 06:08:09 INFO  [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-07-18 06:08:09 INFO  [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-07-18 06:08:09 INFO  [SpringApplicationShutdownHook] o.f.j.s.i.a.AbstractAsyncExecutor - Shutting down the async job executor [org.flowable.job.service.impl.asyncexecutor.DefaultAsyncJobExecutor] for engine bpmn
+2025-07-18 06:08:09 INFO  [flowable-bpmn-acquire-async-jobs] o.f.j.s.i.a.AcquireAsyncJobsDueRunnable - stopped async job due acquisition for engine bpmn
+2025-07-18 06:08:09 INFO  [flowable-bpmn-reset-expired-jobs] o.f.j.s.i.a.ResetExpiredJobsRunnable - stopped resetting expired jobs for engine bpmn
+2025-07-18 06:08:09 INFO  [flowable-bpmn-acquire-timer-jobs] o.f.j.s.i.a.AcquireTimerJobsRunnable - stopped async job due acquisition for engine bpmn
+2025-07-18 06:08:09 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-6 - Shutdown initiated...
+2025-07-18 06:08:09 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-6 - Shutdown completed.
+2025-07-18 06:08:09 INFO  [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'platform'
+2025-07-18 06:08:09 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-5 - Shutdown initiated...
+2025-07-18 06:08:09 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-5 - Shutdown completed.
+2025-07-18 06:24:31 INFO  [restartedMain] s.l.rest.app.SmartLendingRestApp - Starting SmartLendingRestApp using Java 21.0.7 with PID 72190 (/home/boo/learning-area/a2z-smart-lending-platform/backend/smart-lending-be/modules/smart-lending-api/smart-lending-rest-app/target/classes started by boo in /home/boo/learning-area/a2z-smart-lending-platform)
+2025-07-18 06:24:31 INFO  [restartedMain] s.l.rest.app.SmartLendingRestApp - The following 1 profile is active: "uat"
+2025-07-18 06:24:31 INFO  [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-07-18 06:24:31 INFO  [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-07-18 06:24:31 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-07-18 06:24:31 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 31 ms. Found 3 JPA repository interfaces.
+2025-07-18 06:24:32 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 6201 (http)
+2025-07-18 06:24:32 INFO  [restartedMain] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-07-18 06:24:32 INFO  [restartedMain] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.40]
+2025-07-18 06:24:32 INFO  [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-07-18 06:24:32 INFO  [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1351 ms
+2025-07-18 06:24:32 INFO  [restartedMain] s.l.domain.config.PlatformDbConfig - =========== Platform DataSource: HikariDataSource (null) ==========
+2025-07-18 06:24:32 INFO  [restartedMain] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: platform]
+2025-07-18 06:24:32 INFO  [restartedMain] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-07-18 06:24:32 INFO  [restartedMain] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-07-18 06:24:33 INFO  [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-07-18 06:24:33 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-07-18 06:24:33 INFO  [restartedMain] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@3b558f3d
+2025-07-18 06:24:33 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-07-18 06:24:33 INFO  [restartedMain] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 15.10
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-07-18 06:24:34 INFO  [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-07-18 06:24:34 INFO  [restartedMain] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'platform'
+2025-07-18 06:24:34 INFO  [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-07-18 06:24:35 INFO  [restartedMain] s.l.domain.config.ProcessDbConfig - =========== Process DataSource: HikariDataSource (null) ==========
+2025-07-18 06:24:35 INFO  [restartedMain] o.f.s.SpringProcessEngineConfiguration - Found 2 Engine Configurators in total:
+2025-07-18 06:24:35 INFO  [restartedMain] o.f.s.SpringProcessEngineConfiguration - class org.flowable.eventregistry.spring.configurator.SpringEventRegistryConfigurator (priority:100000)
+2025-07-18 06:24:35 INFO  [restartedMain] o.f.s.SpringProcessEngineConfiguration - class org.flowable.idm.engine.configurator.IdmEngineConfigurator (priority:150000)
+2025-07-18 06:24:35 INFO  [restartedMain] o.f.s.SpringProcessEngineConfiguration - Executing beforeInit() of class org.flowable.eventregistry.spring.configurator.SpringEventRegistryConfigurator (priority:100000)
+2025-07-18 06:24:35 INFO  [restartedMain] o.f.s.SpringProcessEngineConfiguration - Executing beforeInit() of class org.flowable.idm.engine.configurator.IdmEngineConfigurator (priority:150000)
+2025-07-18 06:24:35 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting...
+2025-07-18 06:24:35 INFO  [restartedMain] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Added connection org.postgresql.jdbc.PgConnection@53aef84b
+2025-07-18 06:24:35 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed.
+2025-07-18 06:24:36 INFO  [restartedMain] o.f.c.e.i.a.DefaultAsyncTaskExecutor - Creating thread pool queue of size 100
+2025-07-18 06:24:36 INFO  [restartedMain] o.f.c.e.i.a.DefaultAsyncTaskExecutor - Creating thread factory with naming pattern flowable-async-task-invoker-thread-%d
+2025-07-18 06:24:36 INFO  [restartedMain] o.f.c.e.i.a.DefaultAsyncTaskExecutor - Creating executor service with corePoolSize 8, maxPoolSize 8 and keepAliveTime 5000
+2025-07-18 06:24:36 INFO  [restartedMain] o.f.c.e.i.a.DefaultAsyncTaskExecutor - Using rejectedExecutionHandler java.util.concurrent.ThreadPoolExecutor$CallerRunsPolicy@4c9ab41f
+2025-07-18 06:24:36 INFO  [restartedMain] o.f.c.e.i.a.DefaultAsyncTaskExecutor - Creating thread pool queue of size 2048
+2025-07-18 06:24:36 INFO  [restartedMain] o.f.c.e.i.a.DefaultAsyncTaskExecutor - Creating thread factory with naming pattern flowable-async-job-executor-thread-%d
+2025-07-18 06:24:36 INFO  [restartedMain] o.f.c.e.i.a.DefaultAsyncTaskExecutor - Creating executor service with corePoolSize 8, maxPoolSize 8 and keepAliveTime 5000
+2025-07-18 06:24:36 INFO  [restartedMain] o.f.s.SpringProcessEngineConfiguration - Executing configure() of class org.flowable.eventregistry.spring.configurator.SpringEventRegistryConfigurator (priority:100000)
+2025-07-18 06:24:36 INFO  [restartedMain] liquibase.database - Set default schema name to public
+2025-07-18 06:24:36 INFO  [restartedMain] liquibase.changelog - Reading from public.flw_ev_databasechangelog
+2025-07-18 06:24:36 INFO  [restartedMain] liquibase.command - Command execution complete
+2025-07-18 06:24:36 INFO  [restartedMain] o.f.e.impl.EventRegistryEngineImpl - EventRegistryEngine default created
+2025-07-18 06:24:36 INFO  [restartedMain] o.f.s.SpringProcessEngineConfiguration - Executing configure() of class org.flowable.idm.engine.configurator.IdmEngineConfigurator (priority:150000)
+2025-07-18 06:24:36 INFO  [restartedMain] o.f.idm.engine.impl.IdmEngineImpl - IdmEngine default created
+2025-07-18 06:24:36 INFO  [restartedMain] o.f.engine.impl.ProcessEngineImpl - ProcessEngine default created
+2025-07-18 06:24:36 INFO  [restartedMain] o.f.e.impl.cmd.ValidateV5EntitiesCmd - Total of v5 deployments found: 0
+2025-07-18 06:24:37 WARN  [restartedMain] o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: d976aaa3-5b3c-4261-bcbe-50f97ffa9522
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-07-18 06:24:37 INFO  [restartedMain] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2025-07-18 06:24:37 DEBUG [restartedMain] o.s.w.s.m.m.a.RequestMappingHandlerMapping - 14 mappings in 'requestMappingHandlerMapping'
+2025-07-18 06:24:37 DEBUG [restartedMain] o.s.w.s.h.SimpleUrlHandlerMapping - Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2025-07-18 06:24:37 INFO  [restartedMain] o.s.v.b.OptionalValidatorFactoryBean - Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-07-18 06:24:37 DEBUG [restartedMain] o.s.w.s.m.m.a.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2025-07-18 06:24:37 DEBUG [restartedMain] o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2025-07-18 06:24:38 INFO  [restartedMain] o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-07-18 06:24:38 INFO  [restartedMain] o.f.j.s.i.a.AbstractAsyncExecutor - Starting up the async job executor [org.flowable.job.service.impl.asyncexecutor.DefaultAsyncJobExecutor] for engine bpmn
+2025-07-18 06:24:38 INFO  [Thread-9] o.f.j.s.i.a.ResetExpiredJobsRunnable - starting to reset expired jobs for engine bpmn
+2025-07-18 06:24:38 INFO  [Thread-7] o.f.j.s.i.a.AcquireAsyncJobsDueRunnable - starting to acquire async jobs due for engine bpmn
+2025-07-18 06:24:38 INFO  [Thread-8] o.f.j.s.i.a.AcquireTimerJobsRunnable - starting to acquire async jobs due for engine bpmn
+2025-07-18 06:24:38 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 6201 (http) with context path '/'
+2025-07-18 06:24:38 INFO  [restartedMain] s.l.rest.app.SmartLendingRestApp - Started SmartLendingRestApp in 7.387 seconds (process running for 8.0)
+2025-07-18 06:26:58 INFO  [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-07-18 06:26:58 INFO  [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-07-18 06:26:58 INFO  [SpringApplicationShutdownHook] o.f.j.s.i.a.AbstractAsyncExecutor - Shutting down the async job executor [org.flowable.job.service.impl.asyncexecutor.DefaultAsyncJobExecutor] for engine bpmn
+2025-07-18 06:26:58 INFO  [flowable-bpmn-acquire-async-jobs] o.f.j.s.i.a.AcquireAsyncJobsDueRunnable - stopped async job due acquisition for engine bpmn
+2025-07-18 06:26:58 INFO  [flowable-bpmn-acquire-timer-jobs] o.f.j.s.i.a.AcquireTimerJobsRunnable - stopped async job due acquisition for engine bpmn
+2025-07-18 06:26:58 INFO  [flowable-bpmn-reset-expired-jobs] o.f.j.s.i.a.ResetExpiredJobsRunnable - stopped resetting expired jobs for engine bpmn
+2025-07-18 06:26:58 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated...
+2025-07-18 06:26:58 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed.
+2025-07-18 06:26:58 INFO  [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'platform'
+2025-07-18 06:26:58 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-07-18 06:26:58 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-07-18 06:30:16 INFO  [restartedMain] s.l.rest.app.SmartLendingRestApp - Starting SmartLendingRestApp using Java 21.0.7 with PID 74640 (/home/boo/learning-area/a2z-smart-lending-platform/backend/smart-lending-be/modules/smart-lending-api/smart-lending-rest-app/target/classes started by boo in /home/boo/learning-area/a2z-smart-lending-platform)
+2025-07-18 06:30:16 INFO  [restartedMain] s.l.rest.app.SmartLendingRestApp - The following 1 profile is active: "uat"
+2025-07-18 06:30:16 INFO  [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-07-18 06:30:16 INFO  [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-07-18 06:30:18 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-07-18 06:30:18 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 90 ms. Found 3 JPA repository interfaces.
+2025-07-18 06:30:20 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 6201 (http)
+2025-07-18 06:30:20 INFO  [restartedMain] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-07-18 06:30:20 INFO  [restartedMain] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.40]
+2025-07-18 06:30:20 INFO  [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-07-18 06:30:20 INFO  [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 4085 ms
+2025-07-18 06:30:20 INFO  [restartedMain] s.l.domain.config.PlatformDbConfig - =========== Platform DataSource: HikariDataSource (null) ==========
+2025-07-18 06:30:20 INFO  [restartedMain] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: platform]
+2025-07-18 06:30:21 INFO  [restartedMain] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-07-18 06:30:21 INFO  [restartedMain] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-07-18 06:30:21 INFO  [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-07-18 06:30:21 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-07-18 06:30:22 INFO  [restartedMain] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@4b6b931d
+2025-07-18 06:30:22 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-07-18 06:30:22 INFO  [restartedMain] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 15.10
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-07-18 06:30:24 INFO  [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-07-18 06:30:25 INFO  [restartedMain] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'platform'
+2025-07-18 06:30:25 INFO  [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-07-18 06:30:27 INFO  [restartedMain] s.l.domain.config.ProcessDbConfig - =========== Process DataSource: HikariDataSource (null) ==========
+2025-07-18 06:30:28 INFO  [restartedMain] o.f.s.SpringProcessEngineConfiguration - Found 2 Engine Configurators in total:
+2025-07-18 06:30:28 INFO  [restartedMain] o.f.s.SpringProcessEngineConfiguration - class org.flowable.eventregistry.spring.configurator.SpringEventRegistryConfigurator (priority:100000)
+2025-07-18 06:30:28 INFO  [restartedMain] o.f.s.SpringProcessEngineConfiguration - class org.flowable.idm.engine.configurator.IdmEngineConfigurator (priority:150000)
+2025-07-18 06:30:28 INFO  [restartedMain] o.f.s.SpringProcessEngineConfiguration - Executing beforeInit() of class org.flowable.eventregistry.spring.configurator.SpringEventRegistryConfigurator (priority:100000)
+2025-07-18 06:30:28 INFO  [restartedMain] o.f.s.SpringProcessEngineConfiguration - Executing beforeInit() of class org.flowable.idm.engine.configurator.IdmEngineConfigurator (priority:150000)
+2025-07-18 06:30:28 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting...
+2025-07-18 06:30:28 INFO  [restartedMain] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Added connection org.postgresql.jdbc.PgConnection@1265f386
+2025-07-18 06:30:28 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed.
+2025-07-18 06:30:31 INFO  [restartedMain] o.f.c.e.i.a.DefaultAsyncTaskExecutor - Creating thread pool queue of size 100
+2025-07-18 06:30:31 INFO  [restartedMain] o.f.c.e.i.a.DefaultAsyncTaskExecutor - Creating thread factory with naming pattern flowable-async-task-invoker-thread-%d
+2025-07-18 06:30:31 INFO  [restartedMain] o.f.c.e.i.a.DefaultAsyncTaskExecutor - Creating executor service with corePoolSize 8, maxPoolSize 8 and keepAliveTime 5000
+2025-07-18 06:30:31 INFO  [restartedMain] o.f.c.e.i.a.DefaultAsyncTaskExecutor - Using rejectedExecutionHandler java.util.concurrent.ThreadPoolExecutor$CallerRunsPolicy@36d32b48
+2025-07-18 06:30:31 INFO  [restartedMain] o.f.c.e.i.a.DefaultAsyncTaskExecutor - Creating thread pool queue of size 2048
+2025-07-18 06:30:31 INFO  [restartedMain] o.f.c.e.i.a.DefaultAsyncTaskExecutor - Creating thread factory with naming pattern flowable-async-job-executor-thread-%d
+2025-07-18 06:30:31 INFO  [restartedMain] o.f.c.e.i.a.DefaultAsyncTaskExecutor - Creating executor service with corePoolSize 8, maxPoolSize 8 and keepAliveTime 5000
+2025-07-18 06:30:31 INFO  [restartedMain] o.f.s.SpringProcessEngineConfiguration - Executing configure() of class org.flowable.eventregistry.spring.configurator.SpringEventRegistryConfigurator (priority:100000)
+2025-07-18 06:30:32 INFO  [restartedMain] liquibase.database - Set default schema name to public
+2025-07-18 06:30:33 INFO  [restartedMain] liquibase.changelog - Reading from public.flw_ev_databasechangelog
+2025-07-18 06:30:33 INFO  [restartedMain] liquibase.command - Command execution complete
+2025-07-18 06:30:33 INFO  [restartedMain] o.f.e.impl.EventRegistryEngineImpl - EventRegistryEngine default created
+2025-07-18 06:30:33 INFO  [restartedMain] o.f.s.SpringProcessEngineConfiguration - Executing configure() of class org.flowable.idm.engine.configurator.IdmEngineConfigurator (priority:150000)
+2025-07-18 06:30:33 INFO  [restartedMain] o.f.idm.engine.impl.IdmEngineImpl - IdmEngine default created
+2025-07-18 06:30:33 INFO  [restartedMain] o.f.engine.impl.ProcessEngineImpl - ProcessEngine default created
+2025-07-18 06:30:34 INFO  [restartedMain] o.f.e.impl.cmd.ValidateV5EntitiesCmd - Total of v5 deployments found: 0
+2025-07-18 06:30:36 WARN  [restartedMain] o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: aae7c37a-f3aa-4abd-aaf1-a3b97211d88c
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-07-18 06:30:36 INFO  [restartedMain] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2025-07-18 06:30:36 DEBUG [restartedMain] o.s.w.s.m.m.a.RequestMappingHandlerMapping - 14 mappings in 'requestMappingHandlerMapping'
+2025-07-18 06:30:36 DEBUG [restartedMain] o.s.w.s.h.SimpleUrlHandlerMapping - Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2025-07-18 06:30:37 INFO  [restartedMain] o.s.v.b.OptionalValidatorFactoryBean - Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-07-18 06:30:37 DEBUG [restartedMain] o.s.w.s.m.m.a.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2025-07-18 06:30:37 DEBUG [restartedMain] o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2025-07-18 06:30:37 INFO  [restartedMain] o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-07-18 06:30:37 INFO  [restartedMain] o.f.j.s.i.a.AbstractAsyncExecutor - Starting up the async job executor [org.flowable.job.service.impl.asyncexecutor.DefaultAsyncJobExecutor] for engine bpmn
+2025-07-18 06:30:37 INFO  [Thread-9] o.f.j.s.i.a.ResetExpiredJobsRunnable - starting to reset expired jobs for engine bpmn
+2025-07-18 06:30:37 INFO  [Thread-8] o.f.j.s.i.a.AcquireTimerJobsRunnable - starting to acquire async jobs due for engine bpmn
+2025-07-18 06:30:37 INFO  [Thread-7] o.f.j.s.i.a.AcquireAsyncJobsDueRunnable - starting to acquire async jobs due for engine bpmn
+2025-07-18 06:30:37 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 6201 (http) with context path '/'
+2025-07-18 06:30:37 INFO  [restartedMain] s.l.rest.app.SmartLendingRestApp - Started SmartLendingRestApp in 23.578 seconds (process running for 26.204)
+2025-07-18 06:31:53 INFO  [http-nio-6201-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-07-18 06:31:53 INFO  [http-nio-6201-exec-2] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-07-18 06:31:53 DEBUG [http-nio-6201-exec-2] o.s.web.servlet.DispatcherServlet - Detected StandardServletMultipartResolver
+2025-07-18 06:31:53 DEBUG [http-nio-6201-exec-2] o.s.web.servlet.DispatcherServlet - Detected AcceptHeaderLocaleResolver
+2025-07-18 06:31:53 DEBUG [http-nio-6201-exec-2] o.s.web.servlet.DispatcherServlet - Detected FixedThemeResolver
+2025-07-18 06:31:53 DEBUG [http-nio-6201-exec-2] o.s.web.servlet.DispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@7432c78e
+2025-07-18 06:31:53 DEBUG [http-nio-6201-exec-2] o.s.web.servlet.DispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@1a2f9ff0
+2025-07-18 06:31:53 DEBUG [http-nio-6201-exec-2] o.s.web.servlet.DispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2025-07-18 06:31:53 INFO  [http-nio-6201-exec-2] o.s.web.servlet.DispatcherServlet - Completed initialization in 7 ms
+2025-07-18 06:32:34 DEBUG [http-nio-6201-exec-3] o.s.web.servlet.DispatcherServlet - POST "/process/demo-onboarding/getApp", parameters={}
+2025-07-18 06:32:34 DEBUG [http-nio-6201-exec-3] o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to smart.lending.rest.controller.DemoOnboardingController#getLoanApp(RequestWrapper)
+2025-07-18 06:32:34 DEBUG [http-nio-6201-exec-3] o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Read "application/json;charset=UTF-8" to [smart.lending.rest.payload.RequestWrapper@1740db34]
+2025-07-18 06:32:34 DEBUG [http-nio-6201-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2025-07-18 06:32:34 DEBUG [http-nio-6201-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [smart.lending.rest.payload.ResponseWrapper@176e1dbe]
+2025-07-18 06:32:34 DEBUG [http-nio-6201-exec-3] o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-07-18 06:35:26 DEBUG [http-nio-6201-exec-6] o.s.web.servlet.DispatcherServlet - POST "/process/demo-onboarding/acquisition", parameters={}
+2025-07-18 06:35:26 DEBUG [http-nio-6201-exec-6] o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to smart.lending.rest.controller.DemoOnboardingController#acquisition(RequestWrapper)
+2025-07-18 06:35:26 DEBUG [http-nio-6201-exec-6] o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Read "application/json;charset=UTF-8" to [smart.lending.rest.payload.RequestWrapper@5f36a303]
+2025-07-18 06:35:26 DEBUG [http-nio-6201-exec-6] o.s.web.servlet.DispatcherServlet - Failed to complete request: org.flowable.common.engine.api.FlowableObjectNotFoundException: No process definition found for key 'demo-onboarding-process'
+2025-07-18 06:35:26 ERROR [http-nio-6201-exec-6] o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.flowable.common.engine.api.FlowableObjectNotFoundException: No process definition found for key 'demo-onboarding-process'] with root cause
+org.flowable.common.engine.api.FlowableObjectNotFoundException: No process definition found for key 'demo-onboarding-process'
+	at org.flowable.engine.impl.cmd.StartProcessInstanceCmd.getProcessDefinition(StartProcessInstanceCmd.java:291)
+	at org.flowable.engine.impl.cmd.StartProcessInstanceCmd.execute(StartProcessInstanceCmd.java:128)
+	at org.flowable.engine.impl.cmd.StartProcessInstanceCmd.execute(StartProcessInstanceCmd.java:53)
+	at org.flowable.engine.impl.interceptor.CommandInvoker$1.run(CommandInvoker.java:67)
+	at org.flowable.engine.impl.interceptor.CommandInvoker.executeOperation(CommandInvoker.java:140)
+	at org.flowable.engine.impl.interceptor.CommandInvoker.executeOperations(CommandInvoker.java:114)
+	at org.flowable.engine.impl.interceptor.CommandInvoker.execute(CommandInvoker.java:72)
+	at org.flowable.engine.impl.interceptor.BpmnOverrideContextInterceptor.execute(BpmnOverrideContextInterceptor.java:26)
+	at org.flowable.common.engine.impl.interceptor.TransactionContextInterceptor.execute(TransactionContextInterceptor.java:53)
+	at org.flowable.common.engine.impl.interceptor.CommandContextInterceptor.execute(CommandContextInterceptor.java:105)
+	at org.flowable.common.spring.SpringTransactionInterceptor.lambda$execute$0(SpringTransactionInterceptor.java:57)
+	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:140)
+	at org.flowable.common.spring.SpringTransactionInterceptor.execute(SpringTransactionInterceptor.java:57)
+	at org.flowable.common.engine.impl.interceptor.LogInterceptor.execute(LogInterceptor.java:30)
+	at org.flowable.common.engine.impl.cfg.CommandExecutorImpl.execute(CommandExecutorImpl.java:56)
+	at org.flowable.common.engine.impl.cfg.CommandExecutorImpl.execute(CommandExecutorImpl.java:51)
+	at org.flowable.engine.impl.RuntimeServiceImpl.startProcessInstanceByKey(RuntimeServiceImpl.java:121)
+	at smart.lending.rest.controller.DemoOnboardingController.acquisition(DemoOnboardingController.java:36)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:191)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:986)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:891)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:101)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at smart.lending.rest.security.JwtFilter.doFilterInternal(JwtFilter.java:59)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:243)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:238)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:116)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1740)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-07-18 06:37:46 DEBUG [http-nio-6201-exec-9] o.s.web.servlet.DispatcherServlet - POST "/process/demo-onboarding/acquisition", parameters={}
+2025-07-18 06:37:46 DEBUG [http-nio-6201-exec-9] o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to smart.lending.rest.controller.DemoOnboardingController#acquisition(RequestWrapper)
+2025-07-18 06:37:46 DEBUG [http-nio-6201-exec-9] o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Read "application/json;charset=UTF-8" to [smart.lending.rest.payload.RequestWrapper@2f7b9aef]
+2025-07-18 06:37:47 INFO  [http-nio-6201-exec-9] s.l.d.process.DemoOnboardServiceTask - DemoOnboardServiceTask checkDedupe - customerNationalId: 025580888
+2025-07-18 06:37:47 INFO  [http-nio-6201-exec-9] s.l.d.process.DemoOnboardServiceTask - =========DemoOnboardServiceTask getScore, loanAppId: 1 ================
+2025-07-18 06:37:47 INFO  [http-nio-6201-exec-9] s.l.d.process.DemoOnboardServiceTask - DemoOnboardServiceTask getApproval - loanAppId:1,  creditScore 567.89
+2025-07-18 06:37:47 INFO  [http-nio-6201-exec-9] s.l.domain.process.ESignTaskListener - eSign task created in process: 1
+2025-07-18 06:37:47 DEBUG [http-nio-6201-exec-9] o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'text/plain', given [*/*] and supported [text/plain, */*, application/json, application/*+json, application/yaml]
+2025-07-18 06:37:47 DEBUG [http-nio-6201-exec-9] o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing ["1"]
+2025-07-18 06:37:47 DEBUG [http-nio-6201-exec-9] o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-07-18 06:38:32 DEBUG [http-nio-6201-exec-10] o.s.web.servlet.DispatcherServlet - POST "/process/demo-onboarding/getApp", parameters={}
+2025-07-18 06:38:32 DEBUG [http-nio-6201-exec-10] o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to smart.lending.rest.controller.DemoOnboardingController#getLoanApp(RequestWrapper)
+2025-07-18 06:38:32 DEBUG [http-nio-6201-exec-10] o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Read "application/json;charset=UTF-8" to [smart.lending.rest.payload.RequestWrapper@76e27c51]
+2025-07-18 06:38:32 DEBUG [http-nio-6201-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2025-07-18 06:38:32 DEBUG [http-nio-6201-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [smart.lending.rest.payload.ResponseWrapper@92f9942]
+2025-07-18 06:38:32 DEBUG [http-nio-6201-exec-10] o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-07-18 06:38:40 DEBUG [http-nio-6201-exec-1] o.s.web.servlet.DispatcherServlet - POST "/process/demo-onboarding/getApp", parameters={}
+2025-07-18 06:38:40 DEBUG [http-nio-6201-exec-1] o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to smart.lending.rest.controller.DemoOnboardingController#getLoanApp(RequestWrapper)
+2025-07-18 06:38:40 DEBUG [http-nio-6201-exec-1] o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Read "application/json;charset=UTF-8" to [smart.lending.rest.payload.RequestWrapper@239bab13]
+2025-07-18 06:38:40 DEBUG [http-nio-6201-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2025-07-18 06:38:40 DEBUG [http-nio-6201-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [smart.lending.rest.payload.ResponseWrapper@71dfc85e]
+2025-07-18 06:38:40 DEBUG [http-nio-6201-exec-1] o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-07-18 06:39:06 INFO  [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-07-18 06:39:06 INFO  [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-07-18 06:39:06 INFO  [SpringApplicationShutdownHook] o.f.j.s.i.a.AbstractAsyncExecutor - Shutting down the async job executor [org.flowable.job.service.impl.asyncexecutor.DefaultAsyncJobExecutor] for engine bpmn
+2025-07-18 06:39:06 INFO  [flowable-bpmn-acquire-timer-jobs] o.f.j.s.i.a.AcquireTimerJobsRunnable - stopped async job due acquisition for engine bpmn
+2025-07-18 06:39:06 INFO  [flowable-bpmn-acquire-async-jobs] o.f.j.s.i.a.AcquireAsyncJobsDueRunnable - stopped async job due acquisition for engine bpmn
+2025-07-18 06:39:06 INFO  [flowable-bpmn-reset-expired-jobs] o.f.j.s.i.a.ResetExpiredJobsRunnable - stopped resetting expired jobs for engine bpmn
+2025-07-18 06:39:06 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated...
+2025-07-18 06:39:06 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed.
+2025-07-18 06:39:06 INFO  [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'platform'
+2025-07-18 06:39:06 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-07-18 06:39:06 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
